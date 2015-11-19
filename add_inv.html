@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add/Modify Inventory</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="js/add_inv.js"></script>
+  </head>
+  <body>
+    <div class="top_spacer">
+    </div>
+    
+    <div class="top_bar">
+      <div class="logo_box">
+	    <p class="centered_text">LOGO</p>
+      </div>
+      <div class="my_inventory_box">
+	    <h3 class="centered_text">Add/Modify Inventory</h3>
+      </div>
+    </div>
+    
+    <div style="height:8px"></div> <!-- SPACER -->
+
+    <div class="main_div">
+      <div style="height:2px"></div>
+      <div class="left_items_div">
+	    <div class="height:20px"></div>
+	    <div class="Adv_search_div">
+	      <br />
+	      <p class="centered_text">Navigation</p>
+	      <ul>
+	       <li><a href="login.html">Logout</a></li>
+	       <li><a href="my_inventory.html">My Inventory</a></li>
+	      </ul>
+	    </div>
+      </div>
+      <div class="listed_items_div">
+       <div class="cases">
+	    <span>Add Inventory Item</span>
+	    <div class="addModRegDiv">
+	      <table id="addTable">
+	        <colgroup>
+	          <col width="12%">
+	          <col width="20%">
+	          <col width="12%">
+	          <col width="20%">
+	          <col width="12%">
+	          <col width="20%">
+	        </colgroup>
+	        <body>
+	          <tr>
+	            <td>Item:</td>
+	            <td><input type="text" id="addItem" /></td>
+	            <td>Model:</td>
+	            <td><input type="text" id="addModel" /></td>
+	            <td>Serial Number*:</td>
+	            <td><input type="text" id="addSerial" /></td>
+	          </tr>
+	          <tr>
+	            <td>Category:</td>
+	            <td><input type="text" id="addCat" /></td>
+	            <td>Manufacturer:</td>
+	            <td><input type="text" id="addMan" /></td>
+	            <td>Purchase Date:</td>
+	            <td><input type="text" id="addDate" /></td>
+	          </tr>
+	          <tr>
+	            <td>Value:</td>
+	            <td><input type="text" id="addValue" /></td>
+	            <td>Notes:</td>
+	            <td colspan="2"><textarea id="addNotes"></textarea></td>
+	            <td><input id="addItemData" type="button" value="Add Item" /></td>
+	          </tr>
+	        </body>
+	      </table>
+	      <br />
+	    </div>
+	   </div>
+	   <div class="cases">
+	    <span>Register Sale</span>
+	    <div class="addModRegDiv">
+	      <table id="regTable">
+	        <colgroup>
+	          <col width="12%">
+	          <col width="20%">
+	          <col width="12%">
+	          <col width="20%">
+	          <col width="12%">
+	          <col width="20%">
+	        </colgroup>
+	        <body>
+	          <tr>
+	            <td>Sale Date:</td>
+	            <td><input type="text" id="regSale" /></td>
+	            <td>PO Number*:</td>
+	            <td><input type="text" id="regPONum" /></td>
+	            <td>ID of Seller:</td>
+	            <td><input type="text" id="regUID" /></td>
+	          </tr>
+	          <tr>
+	            <td colspan="2">Serial Number(s) of items sold(comma seperated):</td>
+	            <td colspan="3"><textarea id="regItems"></textarea></td>
+	            <td><input type="button" id="sellItem" value="Sold!" /></td>
+	          </tr>
+	        </body>
+	      </table>
+	    </div>
+	   </div>
+	   <div class="cases">
+	    <span>Modify Inventory Item</span>
+	    <span id="updater">
+	      &nbsp;&nbsp;Serial Number:&nbsp;
+	      <input type="text" id="modSerNum" />
+	      &nbsp;&nbsp;
+	      <input type="button" id="findItem" value="Go" />
+	    </span>
+	    <div class="addModRegDiv">
+	      <table id="modTable">
+	        <colgroup>
+	          <col width="12%">
+	          <col width="20%">
+	          <col width="12%">
+	          <col width="20%">
+	          <col width="12%">
+	          <col width="20%">
+	        </colgroup>
+	        <body>
+	          <tr>
+	            <td>Item:</td>
+	            <td><input type="text" id="modItem" /></td>
+	            <td>Model:</td>
+	            <td><input type="text" id="modModel" /></td>
+	            <td>Serial #*:</td>
+	            <td id="modSerial"></td>
+	          </tr>
+	          <tr>
+	            <td>Category:</td>
+	            <td><input type="text" id="modCat" /></td>
+	            <td>Manufacturer:</td>
+	            <td><input type="text" id="modMan" /></td>
+	            <td>Purchase Date:</td>
+	            <td><input type="text" id="modDate" /></td>
+	          </tr>
+	          <tr>
+	            <td>Value:</td>
+	            <td><input type="text" id="modValue" /></td>
+	            <td>Notes:</td>
+	            <td colspan="2"><textarea id="modNotes"></textarea></td>
+	            <td><input type="button" id="modFullItem" value="Update Item" /></td>
+	          </tr>
+	        </body>
+	      </table>
+	     </div>
+	    </div>
+      </div>
+    </div>
+    
+    <div style="height: 8px"></div> <!-- SPACER -->
+
+    <div class="copyright_div">
+      <div class="copyright_box">
+	    <p class="centered_text">
+	      <script type="text/javascript">
+            var date = new Date();
+            var yyyy = date.getFullYear();
+            document.write("WISQL &copy;"+yyyy);
+          </script>
+	    </p>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("html").width(window.innerWidth-15);
+        $("html").height(window.innerHeight-15);
+        $("body").width(window.innerWidth-15);
+        $("body").height(window.innerHeight-15);
+      });
+    </script>
+  </body>
+</html>
