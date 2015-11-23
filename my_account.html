@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Account</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="js/add_inv.js"></script>
+  </head>
+  <body>
+    <div class="top_spacer">
+    </div>
+    
+    <div class="top_bar">
+      <div class="logo_box">
+	    <p class="centered_text">LOGO</p>
+      </div>
+      <div class="my_inventory_box">
+	    <h3 class="centered_text">My Account</h3>
+      </div>
+    </div>
+    
+    <div style="height:8px"></div> <!-- SPACER -->
+
+    <div class="main_div">
+      <div style="height:2px"></div>
+      <div class="left_items_div">
+	    <div class="height:20px"></div>
+	    <div class="Adv_search_div">
+	      <br />
+	      <p class="centered_text">Navigation</p>
+	      <ul>
+	       <li><a href="login.html">Logout</a></li>
+	       <li><a href="my_inventory.html">My Inventory</a></li>
+		<li><a href="my_reports.html">My Reports</a></li>
+	      </ul>
+	    </div>
+      </div>
+      <div class="listed_items_div">
+       <div class="cases">
+	    <span>My Information</span>
+	    <div class="addModRegDiv">
+	      <table id="addTable">
+	        <colgroup>
+	          <col width="12%">
+	          <col width="20%">
+	          <col width="12%">
+	          <col width="20%">
+	          <col width="12%">
+	          <col width="20%">
+	        </colgroup>
+	        <body>
+	          <tr>
+	            <td>First Name:</td>
+	            <td><input type="text" id="firstName" /></td>
+	            <td>Last Name:</td>
+	            <td><input type="text" id="lastName" /></td>
+	          </tr>
+	          <tr>
+	            <td>Old Password:</td>
+	            <td><input type="password" id="oldPassword" /></td>
+	            <td>Phone Number:</td>
+	            <td><input type="text" id="phoneNumber" /></td>
+	          </tr>
+	          <tr>
+	            <td>New Password:</td>
+	            <td><input type="password" id="newPassword" /></td>
+	          </tr>	
+	          <tr>
+	            <td>Confirm New Password:</td>
+	            <td><input type="password" id="confirmPassword" /></td>
+	          </tr>	
+	          <tr>
+	            <td><input id="addItemData" type="button" value="Update" /></td>
+	          </tr>
+	        </body>
+	      </table>
+	      <br />
+	    </div>
+	   </div>
+	  
+      </div>
+    </div>
+    
+    <div style="height: 8px"></div> <!-- SPACER -->
+
+    <div class="copyright_div">
+      <div class="copyright_box">
+	    <p class="centered_text">
+	      <script type="text/javascript">
+            var date = new Date();
+            var yyyy = date.getFullYear();
+            document.write("WISQL &copy;"+yyyy);
+          </script>
+	    </p>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("html").width(window.innerWidth-15);
+        $("html").height(window.innerHeight-15);
+        $("body").width(window.innerWidth-15);
+        $("body").height(window.innerHeight-15);
+      });
+    </script>
+  </body>
+</html>
