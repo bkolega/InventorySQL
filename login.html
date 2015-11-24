@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+  </head>
+  <body>
+    <div class="top_spacer"></div>
+    
+    <div class="logo_div">
+      <div class="logo_box">
+	    <p class="centered_text">LOGO GOES HERE</p>
+      </div>    
+    </div>
+
+    <div style="height:5%"></div> <!-- SPACER -->
+
+    <div class="login_div">
+      <div class="login_box">
+       <form method="POST" action="my_inventory.html">
+        <br />
+        <p></p>
+        Userame:&nbsp;
+        <input type="text" id="UID" name="username" class="loginInputs" />
+        <br />
+        <br />
+        <br />
+        Password:&nbsp;
+        <input type="password" id="UPW" name="password" class="loginInputs" />
+        <br />
+        <br />
+        <br />
+        <input type="Submit" id="submitLogon" value="Login" class="loginInputs" />
+       </form>
+      </div>
+    </div>
+
+    <div style="height:5%"></div> <!-- SPACER -->
+
+    <div class="RAC_div">
+      <div class="RAC_box">
+        <br />
+	    <p class="centered_text">
+	      If you need to register an account please click
+	      <a href="create_account.html">here</a>.
+	    </p>
+      </div>
+    </div>
+
+    <div style="height: 20%"></div> <!-- SPACER -->
+
+     <div class="copyright_div">
+      <div class="copyright_box">
+	    <p class="centered_text">
+	      <script type="text/javascript">
+            var date = new Date();
+            var yyyy = date.getFullYear();
+            document.write("WISQL &copy;"+yyyy);
+          </script>
+	    </p>
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("html").width(window.innerWidth-15);
+        $("html").height(window.innerHeight-15);
+        $("body").width(window.innerWidth-15);
+        $("body").height(window.innerHeight-15);
+      });
+    </script>
+  </body>
+</html>

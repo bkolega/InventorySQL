@@ -3,15 +3,16 @@
   <head>
     <title>Add/Modify Inventory</title>
     <link rel="stylesheet" href="css/main.css" />
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="js/add_inv.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/add_inv.js"></script>
+    <script type="text/javascript" src="js/sessions.js"></script>
   </head>
   <body>
     <div class="top_spacer">
     </div>
     
     <div class="top_bar">
-      <div class="logo_box">
+      <div class="inv_logo_box">
 	    <p class="centered_text">LOGO</p>
       </div>
       <div class="my_inventory_box">
@@ -99,8 +100,17 @@
 	          </tr>
 	          <tr>
 	            <td colspan="2">Serial Number(s) of items sold(comma seperated):</td>
-	            <td colspan="3"><textarea id="regItems"></textarea></td>
-	            <td><input type="button" id="sellItem" value="Sold!" /></td>
+	            <td colspan="2"><textarea id="regItems"></textarea></td>
+	            <td>Sold:&nbsp;</td>
+	            <td>
+	              <input type="radio" name="itemSold" value="Y">&nbsp;Yes</input>
+	              <br />
+	              <input type="radio" name="itemSold" value="N" checked="checked">&nbsp;No</input>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td colspan="4">&nbsp;</td>
+	            <td colspan="2" style="text-align: center;"><input type="button" id="sellItem" value="Sold!" /></td>
 	          </tr>
 	        </body>
 	      </table>

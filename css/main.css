@@ -25,9 +25,8 @@ html, body{
     border: 2px solid #00CCFF;
 }
 
-.logo_box{
+.inv_logo_box{
     float: left;
-    display: flex;
     width: 100px;
     height: 100%;
     border-radius: 10px;
@@ -82,12 +81,11 @@ html, body{
 }
 
 .copyright_box{
-    display: flex;
     width: 99.7%;
     height: 100%;
     border-radius: 7px;
     border: 2px solid #00CCFF;
-    margin: 0 auto;
+    margin: auto;
     align-items: center;
 }
 
@@ -175,4 +173,56 @@ html, body{
     width: 100%;
     display: block;
     height: 75%;
+}
+
+.logo_div{
+    width: 100%;
+    height: 15%;
+}
+
+.logo_box{
+    width: 20%;
+    height: 100%;
+    border-radius: 10px;
+    border: 2px solid #00CCFF;
+    margin: auto;
+}
+
+.centered_text{
+    text-align: center;
+    margin: auto;
+}
+
+.login_div{
+    width: 100%;
+    height: 38%;
+}
+
+.login_box{
+    width: 35%;
+    height: 85%;
+    border-radius: 10px;
+    border: 2px solid #00CCFF;
+    margin: auto;
+    align-items: center;
+    padding: 30px;
+}
+
+.RAC_div{
+    width: 100%;
+    height: 10%;
+}
+
+.RAC_box{
+    width: 40%;
+    height: 100%;
+    border-radius: 10px;
+    border: 2px solid #00CCFF;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.loginInputs{
+  float: right;
+  margin-right: 20%;
 }
