@@ -23,23 +23,24 @@ if(!mysql_select_db($username,$database)){
   die('Could not select database: ' . mysql_error());
 }
 
-$user = $_POST["user"];
-$pass = $_POST["pass"];
+$sdate = $_POST["sdate"];
+$ponum = $_POST["ponum"];
+$items = $_POST["items"];
+$sellId = $_POST["sellId"];
+$invId = $_POST["invId"];
+$sold = $_POST["sold"];
 
-function validateLogin($user,$pass,$database)
+function executeSale($sdate,$ponum,$sellId,$database)
 {
-  $sql_query = "SELECT * FROM USER WHERE user_id = ".$user." AND password = ".$pass;
-  return ($sql_query,$database);
+  $sql_query = "INSERT INTO SALE(purchase_order_num,date,user_id) VALUES ".$ponum.",".$sdate.",".$sellId;
+  mysql_query($sql_query);
 }
 
-$result = validateLogin($user,$pass,$database);
-if(mysql_num_rows($result) == 0)
+executeSale($sdate,$ponum,$sellId,$database);
+foreach($items as $item)
 {
-  return "NO";
+  $sql_query = "UPDATE ITEM SET is_sold=".$sold." WHERE inventory_id=".$invId." AND serial_number=".$item;
 }
-else
-{
-  return "YES";
-}
+
 mysql_close($database);
 ?>

@@ -3,6 +3,7 @@ function AddModItems(type){
     type: "POST",
     url: "php/addModItem.php",
     method: type+"Item",
+    invId: parseInt($('#inventoryID').val()),
     item: $('#'+type+'Item').val(),
     model: $('#'+type+'Model').val(),
     serial: parseInt($('#'+type+'Serial').val()),
@@ -11,25 +12,18 @@ function AddModItems(type){
     pdate: new Date($('#'+type+'Date').val()),
     value: parseFloat($('#'+type+'Value').val()),
     notes: $('#'+type+'Notes').val()
-  })
-  .done(function(data)
-  {
-  
   });
 }
 
-function SellItem(sdate,poNum,sellerId,sold){
+function SellItem(sdate,poNum,sellerId,items,sold){
   $.ajax({
     type: "POST",
-    url: "php/Sale.php",
+    url: "php/sale.php",
     sdate: new Date(sdate),
     ponum: poNum,
     sellID: parseInt(sellerId),
+    items: items,
     sold: sold
-  })
-  .done(function(data)
-  {
-  
   });
 }
 
@@ -55,13 +49,18 @@ $(document).ready(function(){
     var soldVal = null;
     if($('input[name="itemSold"][checked="checked"]').val() === "Y")
     {
-      soldVal = true;
+      soldVal = 1;
     }
     else
     {
-      soldVal = false;
+      soldVal = 0;
     }
-    SellItem($('#regSale').val(),$('#regPONun').val(),$('#regUID').val(),soldVal);
+    var item = $('#regItems').val();
+    if(item.indexOf(",") > -1)
+    {
+      item = item.split(",");
+    }
+    SellItem($('#regSale').val(),$('#regPONum').val(),$('#regUID').val(),item,soldVal);
   });
 
   $('#findItem').click(function(){
@@ -75,9 +74,10 @@ $(document).ready(function(){
         type: "POST",
         url: "php/addModItem.php",
         type: "findItem",
+        invId: parseInt($('#inventoryID').val()),
         item: null,
         model: null,
-        serial: $('#modSerNum').val(),
+        serial: parseInt($('#modSerNum').val()),
         cat: null,
         man: null,
         pdate: null,
@@ -85,7 +85,22 @@ $(document).ready(function(){
         notes: null
       })
       .done(function(data){
-        
+        data = $.parseJSON(data);
+        if(data.error === undefined)
+        {
+          $('#modSerial').val($('#modSerNum').val());
+          $('#modItem').val(data.item.item);
+          $('#modValue').val(data.item.value);
+          $('#modMan').val(data.item.man);
+          $('#modCat').val(data.item.cat);
+          $('#modDate').val(data.item.pdate);
+          $('#modNotes').val(data.item.notes);
+          $('#modModel').val(data.item.model);
+        }
+        else
+        {
+          alert(data.error);
+        }
       });
     }
   });

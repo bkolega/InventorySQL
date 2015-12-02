@@ -1,5 +1,12 @@
-function createCookie(sessionID){
+function createCookie(sessionID,un){
   document.cookie="name=SessionCookie;session="+sessionID;
+  $.ajax({
+    type: "POST",
+    url: "php/session.php"
+    method: "create",
+    session: sessionID,
+    user: user
+  });
 }
 
 function validateLogin(un,up,sess){
@@ -10,7 +17,14 @@ function validateLogin(un,up,sess){
     pass: up
   })
   .done(function(data){
-  
+    if(data == "YES")
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   });
 }
 
@@ -26,13 +40,12 @@ $(document).ready(function(){
     }
     else{
       var session = $.now();
-      var accept = validateLogon($('#UID').val(),$('#UPW').val(),session);
-      if(!accept){
+      if(!(validateLogon($('#UID').val(),$('#UPW').val(),session))){
         e.preventDefault();
         alert("Username and/or Password is invalid");
       }
       else{
-        createCooke(session);
+        createCooke(session,$('#UID').val());
       }
     }
   });

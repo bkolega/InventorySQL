@@ -55,13 +55,13 @@ if($method == "create")
 }
 else if($method == "retrieve")
 {
-  retrieveUser($session,$database);
+  $result = retrieveUser($session,$database);
+  return $result["user_id"];
 }
 else if($method == "remove")
 {
   removeSessionUserEntry($session,$user,$database);
 }
-
 
 mysql_close($database);
 ?>
