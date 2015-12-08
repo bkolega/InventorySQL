@@ -1,32 +1,45 @@
 <?php
-include("config.php");
-session_start();
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-   // username and password sent from Form
-   $myusername=mysqli_real_escape_string($db,$_POST['username']);
-   $mypassword=mysqli_real_escape_string($db,$_POST['password']);
+$username = 'tsteiner';
+$password = 'EECS647';
 
-   $sql="SELECT user_id FROM user WHERE username='$myusername' and passcode='$mypassword'";
-   $result=mysqli_query($db,$sql);
-   $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-   $active=$row['active'];
-   $count=mysqli_num_rows($result);
-   
-   
-   // If result matched $myusername and $mypassword, table row must be 1 row
-   if($count==1){
-	session_register("myusername");
-	$_SESSION['login_user']=$myusername;
-	header("location: my_inventory.php");
-   }else{
-	$error="Your Login Name or Password is invalid";
-   }
+$mRootpath = "";
+$mFilepath = explode('/',dirname(_DIR_));
+foreach($mFilepath as $f){
+  $mRootpath = $mRootpath.$F."/";
+  if($f == "public_html"){
+	break;
+  }
 }
+define('ROOT_PATH',$mRootpath);
+
+error_reporting(E_ALL);
+ini_set("display_errors",1);
+
+$database = @mysql_connect('mysql.eecs.ku.edu',$username,$password);
+if(!$database){
+  die('Could not connect: ' . mysql_error());
+}
+if(!mysql_select_db($username,$database)){
+  die('Could not select database: ' . mysql_error());
+}
+
+$user = $_POST["user"];
+$pass = $_POST["pass"];
+
+function validateLogin($user,$pass,$database)
+{
+  $sql_query = "SELECT * FROM USER WHERE user_id = ".$user." AND password = ".$pass;
+  return ($sql_query,$database);
+}
+
+$result = validateLogin($user,$pass,$database);
+if(mysql_num_rows($result) == 0)
+{
+  return "NO";
+}
+else
+{
+  return "YES";
+}
+mysql_close($database);
 ?>
-<form action="" method="post">
-<label>UserName :</label>
-<input type="text" name="username"/><br />
-<label>Password :</label>
-<input type="password" name="password"/><br/>
-<input type="submit" value=" Submit "/><br />
-</form>

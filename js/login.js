@@ -13,7 +13,7 @@ function createCookie(sessionID,un){
 }
 
 function validateLogin(un,up,sess){
-  $.post("php/login.php",{
+  $.post("login.php",{
     user: un,
     pass: up
   })
