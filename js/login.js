@@ -13,9 +13,7 @@ function createCookie(sessionID,un){
 }
 
 function validateLogin(un,up,sess){
-  $.ajax({
-    type: "POST",
-    url: "php/login.php",
+  $.post("php/login.php",{
     user: un,
     pass: up
   })
