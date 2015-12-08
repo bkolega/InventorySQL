@@ -1,5 +1,5 @@
 function createCookie(sessionID,un){
-  document.cookie="name=SessionCookie;session="+sessionID;
+  document.cookie="session="+sessionID;
   $.post("php/session.php",{
     method: "create",
     session: sessionID,
