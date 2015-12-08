@@ -5,8 +5,16 @@ function createCookie(sessionID,un){
     session: sessionID,
     user: un
   })
-  .done(function(){
-    //$('#logonForm').submit();
+  .done(function(data){
+    if(data == sessionID)
+    {
+      //$('#logonForm').submit();
+      alert("yes");
+    }
+    else
+    {
+      alert("no");
+    }
   });
 }
 

@@ -52,15 +52,17 @@ function removeSessionUserEntry($session,$user,$database)
 if($method == "create")
 {
   createSessionUserEntry($session,$user,$database);
+  echo $session;
 }
 else if($method == "retrieve")
 {
   $result = retrieveUser($session,$database);
-  return $result["user_id"];
+  echo $result["user_id"];
 }
 else if($method == "remove")
 {
   removeSessionUserEntry($session,$user,$database);
+  echo $session
 }
 
 mysql_close($database);
