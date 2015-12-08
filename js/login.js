@@ -5,7 +5,7 @@ function createCookie(sessionID,un){
     url: "php/session.php",
     method: "create",
     session: sessionID,
-    user: user
+    user: un
   })
   .done(function(){
     //$('#logonForm').submit();
