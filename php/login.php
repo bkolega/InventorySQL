@@ -35,11 +35,11 @@ function validateLogin($user,$pass,$database)
 $result = validateLogin($user,$pass,$database);
 if(mysql_num_rows($result) == 0)
 {
-  return "NO";
+  echo "NO";
 }
 else
 {
-  return "YES";
+  echo "YES";
 }
 mysql_close($database);
 ?>
