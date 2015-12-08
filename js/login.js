@@ -8,7 +8,7 @@ function createCookie(sessionID,un){
     user: user
   })
   .done(function(){
-    $('#logonForm').submit();
+    //$('#logonForm').submit();
   });
 }
 
@@ -42,7 +42,7 @@ $(document).ready(function(){
     }
     else{
       var session = $.now();
-      validateLogon($('#UID').val(),$('#UPW').val(),session);
+      validateLogin($('#UID').val(),$('#UPW').val(),session);
     }
   });
 });
