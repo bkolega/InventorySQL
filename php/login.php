@@ -23,12 +23,12 @@ if(!mysql_select_db($username,$database)){
   die('Could not select database: ' . mysql_error());
 }
 
-$user = $_POST["user"];
-$pass = $_POST["pass"];
+$user = $_POST['user'];
+$pass = $_POST['pass'];
 
 function validateLogin($user,$pass,$database)
 {
-  $sql_query = "SELECT * FROM USER WHERE user_id = ".$user." AND password = ".$pass;
+  $sql_query = 'SELECT * FROM USER WHERE user_id = "'.$user.'" AND password = "'.$pass.'"';
   return mysql_query($sql_query,$database);
 }
 
