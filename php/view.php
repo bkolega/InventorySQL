@@ -31,6 +31,7 @@ function getNumItems($database){
 
 $res = getNumItems($database);
 while($row=mysql_fetch_assoc($res)){
-	echo '<p>Total Number of items in inventory: ' . $row["COUNT(*)"].'<br/></p>
+	echo 'Total Number of items in inventory: ' . $row["COUNT(*)"];
+}
 
 ?>
