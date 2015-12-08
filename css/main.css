@@ -1,3 +1,7 @@
+html.my_in_h{
+	font: Arial, Helvetica, sans-serif;
+	overflow: auto;
+}
 html, body{
     overflow: hidden;
     font: Arial, Helvetica, sans-serif;
@@ -35,16 +39,42 @@ html, body{
 
 .main_div{
     width: 100%;
-    height: 80%;
+    height: 100%;
     height: -webkit-calc(100% - 100px);
     height: -moz-calc(100% - 100px);
     height: calc(100% - 100px);
+}
+
+.main_div_mi{
+    width: 100%;
+    height: 80%;
+    height: -webkit-calc(80% - 100px);
+    height: -moz-calc(80% - 100px);
+    height: calc(80% - 100px);
 }
 
 .left_items_div{
     width: 15%;
     height: 100%;
     float: left;
+}
+
+.left_items_div_mi{
+    width: 15%;
+    height: 80%;
+    float: left;
+}
+
+.left_items_div_mi_1{
+	width: 100%;
+	height: 49%;
+	float: left;
+}
+
+.left_items_div_mi_2{
+	width: 100%;
+	height: 49%;
+	float: left;
 }
 
 .Adv_search_div{
@@ -78,6 +108,12 @@ html, body{
 .copyright_div{
     width: 100%;
     height: 5%;
+}
+
+.copyright_div_mi{
+	width: 100%;
+	height: 5%;
+	float: left;
 }
 
 .copyright_box{
@@ -225,4 +261,17 @@ html, body{
 .loginInputs{
   float: right;
   margin-right: 20%;
+}
+
+.my_inv_expanding{
+	min-height: 99%;
+	float: right;
+	width: 84%;
+	margin: 0 auto;
+	border-radius: 10px;
+	border: 2px solid #00CCFF;
+}
+
+.basic_s_table{
+    width: 100%;
 }

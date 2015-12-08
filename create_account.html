@@ -3,15 +3,15 @@
   <head>
     <title>Create Account</title>
     <link rel="stylesheet" href="css/main.css"/>
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="js/add_inv.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/create_account.js"></script>
   </head>
   <body>
     <div style="height:10%"></div>
     
     <div class="logo_div_create_account">
       <div class="logo_box_create_account">
-	<p class="centered_text">LOGO</p>
+	<img src="logo.jpg" alt="WISQL" style="max-height:100%; width:auto; margin: auto;">
       </div>
     </div>
 
@@ -20,61 +20,69 @@
     <div class="create_account_div">
       <div class="create_account_box">
 	<div class="ca_text">
-	  <h3>Create a New Account</h3>
+	  <h3 style="text-align: center;">Create a New Account</h3>
 	</div>
 	<div class="ca_table_div">
-	  <table class="ca_table">
-	    <body>
-	      <tr>
-		<td>First Name:</td>
-		<td><input type="text" id="addFname" /></td>
-	      </tr>
-	      <tr>
-		<td>Last Name:</td>
-		<td><input type="text" id="addLname" /></td>
-	      </tr>
-	      <tr>
-		<td>Phone Number:</td>
-		<td><input type="text" id="addPhone" /></td>
-	      <tr>
-		<td>Username:</td>
-		<td><input type="text" id="addUsername" /></td>
-	      </tr>
-	      <tr>
-		<td>Password:</td>
-		<td><input type="text" id="addPassword" /></td>
-	      </tr>
-	      <tr>
-		<td><input type="button" id="CreateAccountButton" value="Create My Account" /></td>
-	      </tr>
-	    </body>
-	  </table>
+	  <form method="POST">
+		  <table class="ca_table">
+			<body>
+			  <tr>
+				<td style="text-align: right; padding-right:1em;">First Name:</td>
+				<td><input type="text" id="addFname" name="fname"/></td>
+			  </tr>
+			  <tr>
+				<td style="text-align: right; padding-right:1em;">Last Name:</td>
+				<td><input type="text" id="addLname" name="lname"/></td>
+			  </tr>
+			  <tr>
+				<td style="text-align: right; padding-right:1em;">Phone Number:</td>
+				<td><input type="text" id="addPhone" name="phone"/></td>
+			  <tr>
+				<td style="text-align: right; padding-right:1em;">Username:</td>
+				<td><input type="text" id="addUsername" name="username"/></td>
+			  </tr>
+			  <tr>
+				<td style="text-align: right; padding-right:1em;">Password:</td>
+				<td><input type="password" id="addPassword" name="password"/></td>
+			  </tr>
+			  <tr>
+				<td></td>
+				<td><input type="button" id="CreateAccountButton" value="Create My Account" /></td>
+			  </tr>
+			  <tr>
+				<td></td>
+				<td><input type="button" id="Cancel" value="Cancel" onclick="window.location='login.html'" /></td>
+			  </tr>
+			</body>
+		  </table>
+	  </form>
 	  <br />
 	</div>
       </div>
     </div>
 
 
-    <div style="height: -webkit-calc(29%); height: -moz-calc(29%); height: -o-calc(29%); height: calc(29%);"></div>
+    <div style="height: -webkit-calc(28%); height: -moz-calc(28%); height: -o-calc(28%); height: calc(28%);"></div>
 
     <div class="copyright_div">
       <div class="copyright_box">
-	<p class="centered_text">
-	  <script type="text/javascript">
-	    var date = new Date();
-	    var yyyy = date.getFullYear();
-	    document.write("WISQL &copy;"+yyyy);
-	  </script>
-	</p>
+		
+		<p class="centered_text">
+		  <script type="text/javascript">
+			var date = new Date();
+			var yyyy = date.getFullYear();
+			document.write("WISQL &copy;"+yyyy);
+		  </script>
+		</p>
       </div>
     </div>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $("html").width(window.innerWidth-15);
-        $("html").height(window.innerHeight-15);
-        $("body").width(window.innerWidth-15);
-        $("body").height(window.innerHeight-15);
-      });
-    </script>
+		<script type="text/javascript">
+		  $(document).ready(function(){
+			$("html").width(window.innerWidth-15);
+			$("html").height(window.innerHeight-15);
+			$("body").width(window.innerWidth-15);
+			$("body").height(window.innerHeight-15);
+		  });
+		</script>
   </body>
 </html>
