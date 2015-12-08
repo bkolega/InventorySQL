@@ -29,7 +29,7 @@ $pass = $_POST["pass"];
 function validateLogin($user,$pass,$database)
 {
   $sql_query = "SELECT * FROM USER WHERE user_id = ".$user." AND password = ".$pass;
-  return ($sql_query,$database);
+  return mysql_query($sql_query,$database);
 }
 
 $result = validateLogin($user,$pass,$database);
