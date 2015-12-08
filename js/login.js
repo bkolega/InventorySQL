@@ -6,15 +6,7 @@ function createCookie(sessionID,un){
     user: un
   })
   .done(function(data){
-    if(data == sessionID)
-    {
-      //$('#logonForm').submit();
-      alert("yes");
-    }
-    else
-    {
-      alert("no");
-    }
+     //$('#logonForm').submit();
   });
 }
 
