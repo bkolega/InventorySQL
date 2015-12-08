@@ -2,7 +2,7 @@ function createCookie(sessionID,un){
   document.cookie="name=SessionCookie;session="+sessionID;
   $.ajax({
     type: "POST",
-    url: "php/session.php"
+    url: "php/session.php",
     method: "create",
     session: sessionID,
     user: user
