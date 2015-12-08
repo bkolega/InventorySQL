@@ -89,15 +89,6 @@
             var yyyy = date.getFullYear();
 			var data;
             document.write("WISQL &copy;"+yyyy);
-			
-			$.ajax({
-				type: "GET",
-				url: "php/view.php",
-				success: function( d ) {
-					document.write(d);
-				}
-			});
-			document.write(""+data);
           </script>
 	    </p>
       </div>
@@ -108,6 +99,9 @@
         $("html").height(window.innerHeight-15);
         $("body").width(window.innerWidth-15);
         $("body").height(window.innerHeight-15);
+		$.post("php/view.php").done(function(d){
+			$('p.centered_text').append(d);
+		});
       });
     </script>
   </body>
