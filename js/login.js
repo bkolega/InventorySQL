@@ -6,7 +6,7 @@ function createCookie(sessionID,un){
     user: un
   })
   .done(function(data){
-     //$('#logonForm').submit();
+     $('#logonForm').submit();
   });
 }
 

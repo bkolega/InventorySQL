@@ -24,11 +24,8 @@ function removeTableEntry(sess,uname){
 }
 
 $(document).ready(function(){
-  //0 = Cookie Name
-  //1 = Session ID
-  var cookieItems = document.cookie.split(";");
-  var session = cookieItems[1].split("=");
-  session = session[1];
+  var cookie = document.cookie.split("=");
+  var session = cookie[1]
   getUserName(session);
   
   $('a').click(function(){
