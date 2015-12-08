@@ -33,6 +33,7 @@ function validateLogin(un,up,sess){
 
 $(document).ready(function(){
   $('#submitLogon').click(function(e){
+    e.preventDefault();
     if($('#UID').val() === ""){
       alert("Username field empty, please enter a username!");
     }
