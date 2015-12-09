@@ -82,7 +82,7 @@ $(document).ready(function(){
         data = $.parseJSON(data);
         if(data.error === undefined)
         {
-          $('#modSerial').val($('#modSerNum').val());
+          $('#modSerial').text($('#modSerNum').val());
           $('#modItem').val(data.item.itemName);
           $('#modValue').val(data.item.value);
           $('#modMan').val(data.item.man);
