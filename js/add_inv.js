@@ -99,7 +99,7 @@ $(document).ready(function(){
     }
   });
 
-  $('#updateItem').click(function(){
+  $('#modFullItem').click(function(){
      AddModItems("mod");
   });
 });
