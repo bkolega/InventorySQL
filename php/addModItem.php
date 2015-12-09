@@ -60,7 +60,7 @@ if($method == "addItem")
 }
 else if($method == "findItem")
 {
-  $result = findItem($serial,$invId$database);
+  $result = findItem($serial,$invId,$database);
   if(mysql_num_rows($result) == 0)
   {
     echo '{"error":"There is no item with that serial number in your inventory,"}';
