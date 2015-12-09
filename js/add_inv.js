@@ -1,7 +1,5 @@
 function AddModItems(type){
-  $.ajax({
-    type: "POST",
-    url: "php/addModItem.php",
+  $.ajax("php/addModItem.php",{
     method: type+"Item",
     invId: parseInt($('#inventoryID').val()),
     item: $('#'+type+'Item').val(),
@@ -16,9 +14,7 @@ function AddModItems(type){
 }
 
 function SellItem(sdate,poNum,sellerId,items,sold){
-  $.ajax({
-    type: "POST",
-    url: "php/sale.php",
+  $.ajax("php/sale.php",{
     sdate: new Date(sdate),
     ponum: poNum,
     sellID: parseInt(sellerId),
@@ -70,9 +66,7 @@ $(document).ready(function(){
     }
     else
     {
-      $.ajax({
-        type: "POST",
-        url: "php/addModItem.php",
+      $.ajax("php/addModItem.php",{
         type: "findItem",
         invId: parseInt($('#inventoryID').val()),
         item: null,
