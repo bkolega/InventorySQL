@@ -27,7 +27,7 @@ $user = $_POST["un"];
 
 function getInvId($user,$database)
 {
-  $sqlQuery = 'SELECT * FROM HASACCESSTO WHERE inventory_id="'.$user.'"';
+  $sqlQuery = 'SELECT * FROM HASACCESSTO WHERE user_id="'.$user.'"';
   return mysql_query($sqlQuery);
 }
 
