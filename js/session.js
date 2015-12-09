@@ -5,8 +5,7 @@ function getUserName(sess){
     user: null
   })
   .done(function(data){
-    console.log(data);
-    var appendItem = '<div id="userID" style="display:none;" val="'+data+'">';
+    var appendItem = '<div id="userID" style="display:none;" value="'+data+'">';
     $('body').append(appendItem);
   });
 }
@@ -26,7 +25,7 @@ $(document).ready(function(){
   
   $('a').click(function(){
     if($(this).text() === "Logout"){
-      document.cookie = document.cookie + ";expires="+$.now()+1000;
+      document.cookie = document.cookie + ";expires="+new Date($.now()).toUTCString();
       removeTableEntry(session,$('#userID').val());
     }
   });
