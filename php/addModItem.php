@@ -63,7 +63,7 @@ else if($method == "findItem")
   $result = findItem($serial,$invId,$database);
   while($row = mysql_fetch_array($result))
   {
-    echo '{"item":{';
+    /*echo '{"item":{';
     echo '"itemName":"'.$row['item_name'].'",';
     echo '"value":"'.$row['value'].'",';
     echo '"model":"'.$row['model'].'",';
@@ -71,7 +71,8 @@ else if($method == "findItem")
     echo '"cat":"'.$row['category'].'",';
     echo '"pdate":"'.$row['item_purchase_date'].'",';
     echo '"notes":"'.$row['notes'].'"';
-    echo '}}';
+    echo '}}';*/
+    echo $row['item_name'];
   }
 }
 else if($method == "modItem");
