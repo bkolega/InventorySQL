@@ -7,8 +7,8 @@ function AddModItems(type){
     serial: parseInt($('#'+type+'Serial').val()),
     cat: $('#'+type+'Cat').val(),
     man: $('#'+type+'Man').val(),
-    pdate: new Date($('#'+type+'Date').val()),
-    value: parseFloat($('#'+type+'Value').val()),
+    pdate: $('#'+type+'Date').val(),
+    value: $('#'+type+'Value').val(),
     notes: $('#'+type+'Notes').val()
   });
 }
