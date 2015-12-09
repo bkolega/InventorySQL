@@ -56,7 +56,9 @@ if($method == "create")
 else if($method == "retrieve")
 {
   $result = retrieveUser($session,$database);
-  echo $result;
+  while($row = mysql_fetch_array($result)){
+	echo $row['user_id'];
+  }
 }
 else if($method == "remove")
 {
