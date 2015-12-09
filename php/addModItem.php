@@ -34,8 +34,6 @@ $pdate = $_POST['pdate'];
 $value = $_POST['value'];
 $notes = $_POST['notes'];
 
-mysql_close($database);
-
 function addNewItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$database)
 {
   $sql_query = "INSERT INTO ITEM(inventory_id,serial_number, item_name,value, model,manufactuer,category,item_purchase_date,notes,is_sold)".$invId.",".$serial.",".$item.",".$value.",".$model.",".$man.",".$cat.",".$pdate.",".notes.",0";
@@ -44,7 +42,7 @@ function addNewItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$
 
 function findItem($serial,$invId,$database)
 {
-  $sql_query = "SELECT * FROM ITEM WHERE inventory_id='".$invId."' AND serial_number='".$serial."'";
+  $sql_query = 'SELECT * FROM ITEM WHERE inventory_id="'.$invId.'" AND serial_number="'.$serial.'"';
   return mysql_query($sql_query);
 }
 
@@ -63,7 +61,7 @@ else if($method == "findItem")
   $result = findItem($serial,$invId,$database);
   while($row = mysql_fetch_array($result))
   {
-    /*echo '{"item":{';
+    echo '{"item":{';
     echo '"itemName":"'.$row['item_name'].'",';
     echo '"value":"'.$row['value'].'",';
     echo '"model":"'.$row['model'].'",';
@@ -71,8 +69,7 @@ else if($method == "findItem")
     echo '"cat":"'.$row['category'].'",';
     echo '"pdate":"'.$row['item_purchase_date'].'",';
     echo '"notes":"'.$row['notes'].'"';
-    echo '}}';*/
-    echo $row['item_name'];
+    echo '}}';
   }
 }
 else if($method == "modItem");
