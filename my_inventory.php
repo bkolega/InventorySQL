@@ -70,15 +70,14 @@
 		  </div>
 	  </div>
 	  <div class="my_inv_expanding">
-		<div class="my_inv_container">
+		<div style="height: 8px; width: 100%"></div>
 			<script type="text/javascript">
 				$(document).ready(function(){
 					$.post("php/my_inv.php").done(function(d){
-						$('div.my_inv_container').append(d);
+						$('div.my_inv_expanding').append(d);
 					});
-				})
+			})
 			</script>
-		</div>
 	  </div>
 	</div>
     
