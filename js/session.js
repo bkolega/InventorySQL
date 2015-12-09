@@ -7,6 +7,12 @@ function getUserName(sess){
   .done(function(data){
     var appendItem = '<input type="hidden" id="userID" value="'+data+'" />';
     $('body').append(appendItem);
+    $.post("php/access.php",{
+      un: data
+    })
+    .done(function(data){
+      $('body').append('<input type="hidden" id="inventoryID" value="'+data+'" />');
+    });
   });
 }
 
