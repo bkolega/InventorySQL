@@ -20,7 +20,8 @@ function removeTableEntry(sess,uname){
 
 $(document).ready(function(){
   var cookie = document.cookie.split("=");
-  var session = cookie[1]
+  var session = cookie[1].split(";");
+  session = session[0];
   getUserName(session);
   
   $('a').click(function(){
