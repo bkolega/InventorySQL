@@ -57,6 +57,37 @@ if(mysql_num_rows($result) == 0){
 		echo $sql_query;
 		echo "ERROR!";
 	}
+	$sql_query2 = 'INSERT INTO INVENTORY (inv_name, number_items) VALUES ("' .  mysql_real_escape_string($user) . ' inventory","0")';
+	if(!mysql_query($sql_query2) && $admin==1){
+		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
+		echo $sql_query2;
+		echo "ERROR!";
+	}
+	$sql_query3 = 'SELECT inventory_id FROM INVENTORY WHERE inv_name = "' .  mysql_real_escape_string($user) . ' inventory"';
+	/*echo $sql_query3 . '<br />';*/
+	$result2 = mysql_query($sql_query3,$database);
+	/*echo mysql_field_name($result2, 0) . '<br />';
+	echo $result2['inventory_id'] . '<br />';
+	
+	echo  . '<br />';*/
+
+	
+	if(!$result2 && $admin==1){
+		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
+		echo $sql_query;
+		echo "ERROR!";
+	}else{
+		$row = mysql_fetch_row($result2);
+		$inv_id = $row[0];
+		$sql_query4 = 'INSERT INTO HASACCESSTO (user_id, inventory_id) VALUES ("' .  mysql_real_escape_string($user) . '","' .  $inv_id .'")';
+		//echo $sql_query4;
+		if(!mysql_query($sql_query4)){
+			echo mysql_errno($database) . ": " . mysql_error($database). "\n";
+			echo $sql_query;
+			echo "ERROR!";
+		}
+	}
+	
 	echo 'Yes';
 	return "YES";
 

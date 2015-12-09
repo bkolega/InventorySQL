@@ -4,15 +4,8 @@
     <title>My Inventory</title>
     <link rel="stylesheet" href="css/main.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script type="text/javascript" src="js/my_inventory.js"></script>
     <script type="text/javascript" src="js/session.js"></script>
-	<script type="text/javascript">
-      $(document).ready(function(){
-		$.post("php/quickstats.php").done(function(d){
-			$('.quickstats').last().append(d);
-		});
-      });
-    </script>
+    <script type="text/javascript" src="js/my_inventory.js"></script>
   </head>
   <body class="my_in_h">
     <div class="top_spacer"></div>
@@ -80,9 +73,9 @@
 		<div class="my_inv_container">
 			<script type="text/javascript">
 				$(document).ready(function(){
-				$.post("php/my_inv.php").done(function(d){
-					$('div.my_inv_container').append(d);
-				});
+					$.post("php/my_inv.php").done(function(d){
+						$('div.my_inv_container').append(d);
+					});
 				})
 			</script>
 		</div>
