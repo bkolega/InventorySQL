@@ -23,16 +23,16 @@ if(!mysql_select_db($username,$database)){
   die('Could not select database: ' . mysql_error());
 }
 
-$method = $_POST["method"];
-$invId = $_POST["invId"];
-$item = $_POST["item"];
-$model = $_POST["model"];
-$serial = $_POST["serial"];
-$cat = $_POST["cat"];
-$man = $_POST["man"];
-$pdate = $_POST["pdate"];
-$value = $_POST["value"];
-$notes = $_POST["notes"];
+$method = $_POST['method'];
+$invId = $_POST['invId'];
+$item = $_POST['item'];
+$model = $_POST['model'];
+$serial = $_POST['serial'];
+$cat = $_POST['cat'];
+$man = $_POST['man'];
+$pdate = $_POST['pdate'];
+$value = $_POST['value'];
+$notes = $_POST['notes'];
 
 mysql_close($database);
 
@@ -70,13 +70,13 @@ else if($method == "findItem")
     while($row == mysql_fetch_array($result))
     {
       echo '{"item":{';
-      echo '"item":"'.$row["item_name"].'",';
-      echo '"value":"'.$row["value"].'",';
-      echo '"model":"'.$row["model"].'",';
-      echo '"man":"'.$row["manufacturer"].'",';
-      echo '"cat":"'.$row["category"].'",';
-      echo '"pdate":"'.$row["item_purchase_date"].'",';
-      echo '"notes":"'.$row["notes"].'"';
+      echo '"item":"'.$row['item_name'].'",';
+      echo '"value":"'.$row['value'].'",';
+      echo '"model":"'.$row['model'].'",';
+      echo '"man":"'.$row['manufacturer'].'",';
+      echo '"cat":"'.$row['category'].'",';
+      echo '"pdate":"'.$row['item_purchase_date'].'",';
+      echo '"notes":"'.$row['notes'].'"';
       echo '}}';
     }
   }

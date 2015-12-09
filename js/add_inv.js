@@ -69,14 +69,14 @@ $(document).ready(function(){
       $.ajax("php/addModItem.php",{
         type: "findItem",
         invId: parseInt($('#inventoryID').val()),
-        item: null,
-        model: null,
+        item: "",
+        model: "",
         serial: parseInt($('#modSerNum').val()),
-        cat: null,
-        man: null,
-        pdate: null,
-        value: null,
-        notes: null
+        cat: "",
+        man: "",
+        pdate: "",
+        value: "",
+        notes: ""
       })
       .done(function(data){
         data = $.parseJSON(data);
