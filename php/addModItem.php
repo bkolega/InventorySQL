@@ -67,15 +67,18 @@ else if($method == "findItem")
   }
   else
   {
-    echo '{"item":{';
-    echo '"item":"'.$result["item_name"].'",';
-    echo '"value":"'.$result["value"].'",';
-    echo '"model":"'.$result["model"].'",';
-    echo '"man":"'.$result["manufacturer"].'",';
-    echo '"cat":"'.$result["category"].'",';
-    echo '"pdate":"'.$result["item_purchase_date"].'",';
-    echo '"notes":"'.$result["notes"].'"';
-    echo '}}';
+    while($row == mysql_fetch_array($result))
+    {
+      echo '{"item":{';
+      echo '"item":"'.$row["item_name"].'",';
+      echo '"value":"'.$row["value"].'",';
+      echo '"model":"'.$row["model"].'",';
+      echo '"man":"'.$row["manufacturer"].'",';
+      echo '"cat":"'.$row["category"].'",';
+      echo '"pdate":"'.$row["item_purchase_date"].'",';
+      echo '"notes":"'.$row["notes"].'"';
+      echo '}}';
+    }
   }
 }
 else if($method == "modItem");

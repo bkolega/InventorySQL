@@ -1,4 +1,8 @@
 function createCookie(sessionID,un){
+  if(document.cookie != "")
+  {
+    document.cookie = document.cookie + ";expires="+(new Date($.now()).toUTCString());
+  }
   document.cookie="session="+sessionID;
   $.post("php/session.php",{
     method: "create",
