@@ -37,7 +37,6 @@ function executeSale($sdate,$ponum,$sellId,$database)
 }
 
 executeSale($sdate,$ponum,$sellId,$database);
-
 foreach($items as $item)
 {
   $sql_query = "UPDATE ITEM SET is_sold=".$sold." WHERE inventory_id=".$invId." AND serial_number=".$item;
