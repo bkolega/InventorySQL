@@ -39,7 +39,7 @@ function createSessionUserEntry($session,$user,$database)
 
 function retrieveUser($session,$database)
 {
-  $sqlQuery = 'SELECT user_id FROM SESSION WHERE session_id='.$session;
+  $sqlQuery = 'SELECT * FROM SESSION WHERE session_id='.$session;
   return mysql_query($sqlQuery,$database);
 }
 
@@ -56,7 +56,7 @@ if($method == "create")
 else if($method == "retrieve")
 {
   $result = retrieveUser($session,$database);
-  echo "{\"userId\":\"".$result."\"}";
+  echo "{\"userId\":\"".$result['user_id']."\"}";
 }
 else if($method == "remove")
 {
