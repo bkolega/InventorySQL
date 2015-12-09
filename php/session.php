@@ -39,7 +39,7 @@ function createSessionUserEntry($session,$user,$database)
 
 function retrieveUser($session,$database)
 {
-  $sqlQuery = 'SELECT user_id FROM SESSION WHERE session_id='.$session;
+  $sqlQuery = 'SELECT * FROM SESSION WHERE session_id='.$session;
   return mysql_query($sqlQuery);
 }
 
