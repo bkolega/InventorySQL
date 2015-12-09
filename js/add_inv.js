@@ -67,7 +67,7 @@ $(document).ready(function(){
     else
     {
       $.post("php/addModItem.php",{
-        type: "findItem",
+        method: "findItem",
         invId: parseInt($('#inventoryID').val()),
         item: null,
         model: null,
