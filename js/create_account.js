@@ -58,7 +58,7 @@ $(document).ready(function(){
 		}else{
 			addUser($('#addUsername').val(),$('#addPassword').val(),$('#addFname').val(),$('#addLname').val(),$('#addPhone').val(),$('#admintag').val());
 			e.preventDefault();
-			alert("Username already exists. Please try again");
+			
 		}
 	});
 });
