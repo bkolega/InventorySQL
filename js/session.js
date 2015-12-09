@@ -5,7 +5,7 @@ function getUserName(sess){
     user: null
   })
   .done(function(data){
-    var appendItem = '<div id="userID" style="display:none;" value="'+data+'">';
+    var appendItem = '<input type="hidden" id="userID" value="'+data+'" />';
     $('body').append(appendItem);
   });
 }
