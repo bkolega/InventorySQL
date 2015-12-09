@@ -1,10 +1,10 @@
-function AddModItems(type){
+function AddModItems(type,ser){
   $.post("php/addModItem.php",{
     method: type+"Item",
     invId: parseInt($('#inventoryID').val()),
     item: $('#'+type+'Item').val(),
     model: $('#'+type+'Model').val(),
-    serial: parseInt($('#'+type+'Serial').val()),
+    serial: ser,
     cat: $('#'+type+'Cat').val(),
     man: $('#'+type+'Man').val(),
     pdate: $('#'+type+'Date').val(),
@@ -38,7 +38,7 @@ $(document).ready(function(){
   });
   
   $('#addItemData').click(function(){
-    AddModItems("add");
+    AddModItems("add",parseInt($('#addSerial').val()));
   });
 
   $('#sellItem').click(function(){
@@ -100,6 +100,6 @@ $(document).ready(function(){
   });
 
   $('#modFullItem').click(function(){
-     AddModItems("mod");
+     AddModItems("mod",parseInt($('#modSerNum').val()));
   });
 });
