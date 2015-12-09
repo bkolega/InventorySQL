@@ -64,7 +64,7 @@ else if($method == "findItem")
   while($row = mysql_fetch_array($result))
   {
     echo '{"item":{';
-    echo '"item":"'.$row['item_name'].'",';
+    echo '"itemName":"'.$row['item_name'].'",';
     echo '"value":"'.$row['value'].'",';
     echo '"model":"'.$row['model'].'",';
     echo '"man":"'.$row['manufacturer'].'",';

@@ -83,7 +83,7 @@ $(document).ready(function(){
         if(data.error === undefined)
         {
           $('#modSerial').val($('#modSerNum').val());
-          $('#modItem').val(data.item.item);
+          $('#modItem').val(data.item.itemName);
           $('#modValue').val(data.item.value);
           $('#modMan').val(data.item.man);
           $('#modCat').val(data.item.cat);

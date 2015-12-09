@@ -37,3 +37,6 @@ while($row = mysql_fetch_array($result))
 {
   echo $row['inventory_id'];
 }
+
+mysql_close($database);
+?>
