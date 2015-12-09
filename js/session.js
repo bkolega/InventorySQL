@@ -8,7 +8,8 @@ function getUserName(sess){
   })
   .done(function(data){
     console.log(data);
-    var appendItem = '<div id="userID" style="display:none;" val="'+data+'">';
+    data = $.parseJSON(data);
+    var appendItem = '<div id="userID" style="display:none;" val="'+data.userId+'">';
     $('body').append(appendItem);
   });
 }
