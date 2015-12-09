@@ -281,6 +281,24 @@ html, body{
 	border: 2px solid #00CCFF;
 }
 
+.my_inv_container{
+	width: 98%;
+	float:center;
+
+	margin: 0 auto;
+	border-radius: 10px;
+	border: 2px solid #00CCFF;
+}
+
+.my_inv_left{
+	width: 49%;
+	display: inline-block;
+}
+
+.my_inv_right{
+	width: 49%;
+	display: inline-block;
+}
 .basic_s_table{
     width: 100%;
 }
