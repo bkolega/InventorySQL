@@ -56,7 +56,7 @@ if($method == "create")
 else if($method == "retrieve")
 {
   $result = retrieveUser($session,$database);
-  echo "{\"userId\":\"".$result["user_id"]."\"}";
+  echo "{\"userId\":\"".$result."\"}";
 }
 else if($method == "remove")
 {
