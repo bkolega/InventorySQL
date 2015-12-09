@@ -45,7 +45,7 @@ function addNewItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$
 function findItem($serial,$invId,$database)
 {
   $sql_query = "SELECT * FROM ITEM WHERE inventory_id=".$invId." AND serial_number=".$serial;
-  return mysql_query($sql_query);
+  return mysql_query($sql_query,$database);
 }
 
 function updateItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$database)
