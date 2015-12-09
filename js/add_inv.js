@@ -68,10 +68,10 @@ $(document).ready(function(){
     {
       $.ajax("php/addModItem.php",{
         type: "findItem",
-        invId: parseInt($('#inventoryID').val()),
+        invId: $('#inventoryID').val(),
         item: "",
         model: "",
-        serial: parseInt($('#modSerNum').val()),
+        serial: $('#modSerNum').val(),
         cat: "",
         man: "",
         pdate: "",
