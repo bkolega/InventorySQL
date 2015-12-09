@@ -6,8 +6,15 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="js/my_inventory.js"></script>
     <script type="text/javascript" src="js/session.js"></script>
+	<script type="text/javascript">
+      $(document).ready(function(){
+		$.post("php/quickstats.php").done(function(d){
+			$('.quickstats').last().append(d);
+		});
+      });
+    </script>
   </head>
-  <body>
+  <body class="my_in_h">
     <div class="top_spacer"></div>
     
     <div class="top_bar">
@@ -38,7 +45,7 @@
 	  <tr>
 	</table>
       </div>
-      	  <div class="left_items_div_mi">
+      	<div class="left_items_div_mi">
 		  <div class="left_items_div_mi_1">
 			<div class="Adv_search_div">
 			  <br />
@@ -50,27 +57,22 @@
 			  <br clear="all" />
 			  <p class="centered_text">Advanced Search</p>
 			  <div>
-				<input type="text" id="adv_name" placeholder="Name" style="max-width:100%;"/>
+				&nbsp <input type="text" id="adv_name" placeholder="Name" style="max-width:75%;"/>
 			  </div>
 			  <div>
-				<input type="text" id="adv_price" placeholder="Price"/>
+				&nbsp <input type="text" id="adv_price" placeholder="Price"style="max-width:75%;"/>
 			  </div>
 			  <div>
-				<input type="text" id="adv_cat" placeholder="Category"/>
+				&nbsp <input type="text" id="adv_cat" placeholder="Category"style="max-width:75%;"/>
 			  </div>
 			  <div>
-				<input type="button" id="adv_go" value="Go"/>
+				&nbsp <input type="button" id="adv_go" value="Go" />
 			  </div>
 			</div>
 		  </div>
 		  <div style="height:7px; float: left; width: 100%;"></div>
 		  <div class="left_items_div_mi_2">
-			<div class="Adv_search_div">
-			  <h4>Quick Statistics</h4>
-			  <p>Total Number items:<br/>
-			  Total Value:<br/>
-			  Total Deprecated Value:<br/>
-			  Oldest Item Purchased:</p>
+			<div class="Adv_search_div quickstats">
 			</div>
 		  </div>
 	  </div>
@@ -108,6 +110,7 @@
         $("body").width(window.innerWidth-15);
         $("body").height(window.innerHeight-15);*/
 		$.post("php/view.php").done(function(d){
+			$('p.centered_text').last().append("<br />");
 			$('p.centered_text').last().append(d);
 		});
       });
