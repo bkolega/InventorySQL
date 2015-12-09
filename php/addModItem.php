@@ -45,7 +45,7 @@ function addNewItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$
 function findItem($serial,$invId,$database)
 {
   $sql_query = "SELECT * FROM ITEM WHERE inventory_id=".$invId." AND serial_number=".$serial;
-  return mysql_query($sql_query,$database);
+  return mysql_query($sql_query);
 }
 
 function updateItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$database)
@@ -61,24 +61,17 @@ if($method == "addItem")
 else if($method == "findItem")
 {
   $result = findItem($serial,$invId,$database);
-  if(mysql_num_rows($result) == 0)
+  while($row == mysql_fetch_array($result))
   {
-    echo '{"error":"There is no item with that serial number in your inventory,"}';
-  }
-  else
-  {
-    while($row == mysql_fetch_array($result))
-    {
-      echo '{"item":{';
-      echo '"item":"'.$row['item_name'].'",';
-      echo '"value":"'.$row['value'].'",';
-      echo '"model":"'.$row['model'].'",';
-      echo '"man":"'.$row['manufacturer'].'",';
-      echo '"cat":"'.$row['category'].'",';
-      echo '"pdate":"'.$row['item_purchase_date'].'",';
-      echo '"notes":"'.$row['notes'].'"';
-      echo '}}';
-    }
+    echo '{"item":{';
+    echo '"item":"'.$row['item_name'].'",';
+    echo '"value":"'.$row['value'].'",';
+    echo '"model":"'.$row['model'].'",';
+    echo '"man":"'.$row['manufacturer'].'",';
+    echo '"cat":"'.$row['category'].'",';
+    echo '"pdate":"'.$row['item_purchase_date'].'",';
+    echo '"notes":"'.$row['notes'].'"';
+    echo '}}';
   }
 }
 else if($method == "modItem");
