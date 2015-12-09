@@ -1,7 +1,5 @@
 function getUserName(sess){
-  $.ajax({
-    type: "POST",
-    url: "php/session.php",
+  $.post("php/session.php",{
     method: "retrieve",
     session: sess,
     user: null
@@ -15,9 +13,7 @@ function getUserName(sess){
 }
 
 function removeTableEntry(sess,uname){
-  $.ajax({
-    type: "POST",
-    url: "php/session.php",
+  $.post("php/session.php",{
     method: "remove",
     session: sess,
     user: uname

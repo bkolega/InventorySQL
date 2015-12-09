@@ -27,9 +27,9 @@ if(!mysql_select_db($username,$database))
   die('Could not select database: ' . mysql_error());
 }
 
-$method = $_POST["method"];
-$session = $_POST["session"];
-$user = $_POST["user"];
+$method = $_POST['method'];
+$session = $_POST['session'];
+$user = $_POST['user'];
 
 function createSessionUserEntry($session,$user,$database)
 {
