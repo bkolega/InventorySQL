@@ -6,8 +6,7 @@ function getUserName(sess){
   })
   .done(function(data){
     console.log(data);
-    data = $.parseJSON(data);
-    var appendItem = '<div id="userID" style="display:none;" val="'+data.userId+'">';
+    var appendItem = '<div id="userID" style="display:none;" val="'+data+'">';
     $('body').append(appendItem);
   });
 }
