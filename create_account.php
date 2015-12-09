@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html class="my_in_h" style="min-height=2000px">
   <head>
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <title>Create Account</title>
-    <link rel="stylesheet" href="css/main.css"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<link rel="stylesheet" href="css/main.css"/>    
     <script type="text/javascript" src="js/create_account.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			var date = new Date();
+			var yyyy = date.getFullYear();
+			//document.write("WISQL &copy;"+yyyy);
+			$('.copyright').html("WISQL &copy;"+yyyy);
+			});
+		  </script>
   </head>
-  <body>
+  <body class="my_in_h">
+  <input type="hidden" id="admintag" value="<?php echo isset($_GET['admin']) ? $_GET['admin'] : 0; ?>" />
     <div style="height:10%"></div>
     
     <div class="logo_div_create_account">
@@ -25,7 +34,6 @@
 	<div class="ca_table_div">
 	  <form method="POST">
 		  <table class="ca_table">
-			<body>
 			  <tr>
 				<td style="text-align: right; padding-right:1em;">First Name:</td>
 				<td><input type="text" id="addFname" name="fname"/></td>
@@ -53,7 +61,6 @@
 				<td></td>
 				<td><input type="button" id="Cancel" value="Cancel" onclick="window.location='login.html'" /></td>
 			  </tr>
-			</body>
 		  </table>
 	  </form>
 	  <br />
@@ -67,22 +74,20 @@
     <div class="copyright_div">
       <div class="copyright_box">
 		
-		<p class="centered_text">
-		  <script type="text/javascript">
-			var date = new Date();
-			var yyyy = date.getFullYear();
-			document.write("WISQL &copy;"+yyyy);
-		  </script>
+		<p class="centered_text copyright">
+
 		</p>
       </div>
     </div>
 		<script type="text/javascript">
-		  $(document).ready(function(){
+		  $(document).ready(function(){/*
 			$("html").width(window.innerWidth-15);
 			$("html").height(window.innerHeight-15);
 			$("body").width(window.innerWidth-15);
-			$("body").height(window.innerHeight-15);
+			$("body").height(window.innerHeight-15);*/
 		  });
 		</script>
+	<div id="test">
+	</div>
   </body>
 </html>

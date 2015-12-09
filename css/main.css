@@ -1,10 +1,18 @@
 html.my_in_h{
 	font: Arial, Helvetica, sans-serif;
 	overflow: auto;
+	height: 100%;
+	width: 100%;
 }
 html, body{
     overflow: hidden;
     font: Arial, Helvetica, sans-serif;
+}
+.my_in_h{
+	font: Arial, Helvetica, sans-serif;
+	overflow: auto;
+	height: 99%;
+	width: 99%;
 }
 
 .top_spacer{
@@ -67,13 +75,13 @@ html, body{
 
 .left_items_div_mi_1{
 	width: 100%;
-	height: 49%;
+	height: 63%;
 	float: left;
 }
 
 .left_items_div_mi_2{
 	width: 100%;
-	height: 49%;
+	height: 59%;
 	float: left;
 }
 
@@ -82,6 +90,7 @@ html, body{
     height: 100%;
     border-radius: 10px;
     border: 2px solid #00CCFF;
+	float: left;
 }
 
 .listed_items_div{

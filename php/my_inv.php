@@ -23,16 +23,10 @@ if(!mysql_select_db($username,$database)){
   die('Could not select database: ' . mysql_error());
 }
 
-
-function getNumItems($database){
-	$sql_query = 'SELECT * FROM TOTAL_ITEMS';
-	return mysql_query($sql_query,$database);
-}
-
-$res = getNumItems($database);
-while($row=mysql_fetch_assoc($res)){
-	echo '		';
-	echo 'Keeping Track of (' . $row["COUNT(*)"] . ') items';
-}
-
+echo '<div class="my_inv_container">';
+echo '	<div class="my_inv_left">';
+echo '		<p>Am I working?</p>';
+echo '	</div>';
+echo '</div>';
+mysql_close($database);
 ?>

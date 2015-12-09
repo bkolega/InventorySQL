@@ -1,20 +1,25 @@
-function addUser(uname, upass, name_f, name_l, phoneNum){
-	$.ajax({
-		type: "POST",
-		url: "php/create_account.php",
+function addUser(uname, upass, name_f, name_l, phoneNum, admin){
+	$.post("php/ca.php",{
 		user: uname,
 		pass: upass,
 		fname: name_f,
 		lname: name_l,
-		phone: phoneNum
+		phone: phoneNum,
+		isAdmin: admin
 		
-	})
-	.done(function(data){
-		if(data == "YES"){
-			return true;
+	},function(data, status){
+		if(data.length > 5){
+			$('#test').html(data);
 		}else{
-			return false;
+			if(data.length == 3){
+				window.location="login.html";
+				return true;
+			}else{
+				alert("Username already exists. Please try again");
+				return false;
+			}
 		}
+
 	});
 }
 
@@ -35,11 +40,25 @@ $(document).ready(function(){
 		}else if($('#addPassword').val() == ""){
 			e.preventDefault();
 			alert("Missing Data: Password. Please fill out.");
+		}else if($('#addFname').val().indexOf(';') !== -1 || $('#addFname').val().indexOf(',') !== -1 || $('#addFname').val().indexOf('=') !== -1 || $('#addFname').val().indexOf('*') !== -1){
+			e.preventDefault();
+			alert("Invalid Character Detected");
+		}else if($('#addLname').val().indexOf(';') !== -1 || $('#addLname').val().indexOf(',') !== -1 || $('#addLname').val().indexOf('=') !== -1 || $('#addLname').val().indexOf('*') !== -1){
+			e.preventDefault();
+			alert("Invalid Character Detected");
+		}else if($('#addPhone').val().indexOf(';') !== -1 || $('#addPhone').val().indexOf(',') !== -1 || $('#addPhone').val().indexOf('=') !== -1 || $('#addPhone').val().indexOf('*') !== -1){
+			e.preventDefault();
+			alert("Invalid Character Detected");
+		}else if($('#addUsername').val().indexOf(';') !== -1 || $('#addUsername').val().indexOf(',') !== -1 || $('#addUsername').val().indexOf('=') !== -1 || $('#addUsername').val().indexOf('*') !== -1){
+			e.preventDefault();
+			alert("Invalid Character Detected");
+		}else if($('#addPassword').val().indexOf(';') !== -1 || $('#addPassword').val().indexOf(',') !== -1 || $('#addPassword').val().indexOf('=') !== -1 || $('#addPassword').val().indexOf('*') !== -1){
+			e.preventDefault();
+			alert("Invalid Character Detected");
 		}else{
-			if(!(addUser($('#addUsername').val(),$('#addPassword').val(),$('#addFname').val(),$('#addLname').val(),$('#addPhone').val()))){
-				e.preventDefault();
-				alert("Username already exists. Please try again");
-			}
+			addUser($('#addUsername').val(),$('#addPassword').val(),$('#addFname').val(),$('#addLname').val(),$('#addPhone').val(),$('#admintag').val());
+			e.preventDefault();
+			alert("Username already exists. Please try again");
 		}
 	});
 });

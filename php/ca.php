@@ -1,4 +1,5 @@
 <?php
+
 $username = 'tsteiner';
 $password = 'EECS647';
 
@@ -28,10 +29,22 @@ $pass = $_POST["pass"];
 $fname = $_POST["fname"];
 $lname = $_POST["lname"];
 $phone = $_POST["phone"];
+$admin = $_POST["isAdmin"];
+
+if($admin==1){
+	echo "<pre>";
+	var_dump($_POST);
+	echo "</pre>";
+}
 
 function checkUserExists($user,$database){
-	$sql_query = "SELECT * FROM USER WHERE user_id=".$user;
-	return mysql_query($sql_query,$database);
+	$sql_query = "SELECT * FROM USER WHERE user_id='".$user."'";
+	$result= mysql_query($sql_query,$database);
+	if(!$result){
+		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
+		echo $sql_query;
+	}
+	return $result;
 }
 
 $result = checkUserExists($user,$database);
@@ -39,12 +52,16 @@ if(mysql_num_rows($result) == 0){
 	$sql_query = 'INSERT INTO USER (user_id, name_first, name_last, password, phone_num) VALUES ("';
 	$sql_query .= mysql_real_escape_string($user).'","'.mysql_real_escape_string($fname).'","'.mysql_real_escape_string($lname);
 	$sql_query .= '","'.mysql_real_escape_string($pass).'","'.mysql_real_escape_string($phone).'")';
-	if(!mysql_query($sql_query)){
+	if(!mysql_query($sql_query) && $admin==1){
+		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
+		echo $sql_query;
 		echo "ERROR!";
 	}
+	echo 'Yes';
 	return "YES";
 
 }else{
+	echo 'No';
 	return "NO";
 }
 mysql_close($database);
