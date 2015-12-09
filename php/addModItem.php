@@ -61,7 +61,7 @@ if($method == "addItem")
 else if($method == "findItem")
 {
   $result = findItem($serial,$invId,$database);
-  while($row == mysql_fetch_array($result))
+  while($row = mysql_fetch_array($result))
   {
     echo '{"item":{';
     echo '"item":"'.$row['item_name'].'",';
