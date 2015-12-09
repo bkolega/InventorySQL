@@ -1,5 +1,5 @@
 function AddModItems(type){
-  $.ajax("php/addModItem.php",{
+  $.post("php/addModItem.php",{
     method: type+"Item",
     invId: parseInt($('#inventoryID').val()),
     item: $('#'+type+'Item').val(),
@@ -14,7 +14,7 @@ function AddModItems(type){
 }
 
 function SellItem(sdate,poNum,sellerId,items,sold){
-  $.ajax("php/sale.php",{
+  $.post("php/sale.php",{
     sdate: new Date(sdate),
     ponum: poNum,
     sellID: parseInt(sellerId),
@@ -66,17 +66,17 @@ $(document).ready(function(){
     }
     else
     {
-      $.ajax("php/addModItem.php",{
+      $.post("php/addModItem.php",{
         type: "findItem",
-        invId: $('#inventoryID').val(),
-        item: "",
-        model: "",
-        serial: $('#modSerNum').val(),
-        cat: "",
-        man: "",
-        pdate: "",
-        value: "",
-        notes: ""
+        invId: parseInt($('#inventoryID').val()),
+        item: null,
+        model: null,
+        serial: parseInt($('#modSerNum').val()),
+        cat: null,
+        man: null,
+        pdate: null,
+        value: null,
+        notes: null
       })
       .done(function(data){
         data = $.parseJSON(data);
