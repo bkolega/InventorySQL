@@ -7,7 +7,7 @@ function AddModItems(type,ser){
     serial: ser,
     cat: $('#'+type+'Cat').val(),
     man: $('#'+type+'Man').val(),
-    pdate: $('#'+type+'Date').val(),
+    pdate: new Date($('#'+type+'Date').val()).toISOString().slice(0, 19).replace('T', ' '),
     value: $('#'+type+'Value').val(),
     notes: $('#'+type+'Notes').val()
   });
