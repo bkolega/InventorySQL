@@ -1,11 +1,11 @@
-function updateAcc(uname, fn, ln, phoneNum, old, new1){
+function createReport(p1, p2, p3, p4, p5, p6){
 	$.post("php/update_report.php",{
-		user: uname,
-		fname: fn,
-		lname: ln,
-		phone: phoneNum,
-		oldpw: old,
-		newpass1: new1
+		col1: p1,
+		col2: p2,
+		col3: p3,
+		cond1: p4,
+		cond2: p5,
+		fname: p6
 		
 	},function(data, status){
 		if(data.length != 3){
@@ -24,25 +24,16 @@ function updateAcc(uname, fn, ln, phoneNum, old, new1){
 }
 
 $(document).ready(function(){
-	$('#submitUpdate').click(function(e){
-		var username = ($('#userID').val());
-		var oldpw = $('#opw').val();
-		var new1 = $('#npw1').val();
-		var new2 = $('#npw2').val();
-		var first = $('#fn').val();
-		var last = $('#ln').val();
+	$('#submitReport').click(function(e){
+		var col1 = $('#c1');
+		var col2 = $('#c2');
+		var col3 = $('#c3');
+		var cond1 = $('#cond1');
+		var cond2 = $('#cond2');
+		var fname = $('#filename');
+		
+		
 
-		if(new1 != new2)
-		{
-			e.preventDefault();
-			alert("New passwords do not match!");
-			return;
-		} if(first == "" || last == "" || oldpw == "" || new1 == "" || new2 =="") {
-			e.preventDefault();
-			alert("Empty fields detected!");
-			return;
-		}
-
-		updateAcc($('#userID').val(),$('#fn').val(),$('#ln').val(),$('#pn').val(),$('#opw').val(),$('#npw1').val());
+		createReport(col1,col2,col3,cond1,cond2,fname);
 	});
 });

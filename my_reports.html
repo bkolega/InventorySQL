@@ -51,7 +51,7 @@
 			</br>
 			<form action="generate_report.php">
 			<p class="centered_text">Columns</p>
-			  <select class="centered_text" name="col1">
+			  <select class="centered_text" name="col1" id="c1">
 			   <option value="selectdefault">Select...</option>
 			    <option value="name">Name</option>
 			    <option value="serial">Serial Number</option>
@@ -60,7 +60,7 @@
 		    	    <option value="manufacturer">Manufacturer</option>
 			    <option value="category">Category</option>
 			  </select>
-			  <select name="col2">
+			  <select name="col2" id="c2">
 			    <option value="selectdefault">Select...</option>
 			    <option value="name">Name</option>
 			    <option value="serial">Serial Number</option>
@@ -69,7 +69,7 @@
 		    	    <option value="manufacturer">Manufacturer</option>
 			    <option value="category">Category</option>
 			  </select>
-			  <select name="col3">
+			  <select name="col3" id="c3">
 			    <option value="selectdefault">Select...</option>
 			    <option value="name">Name</option>
 			    <option value="serial">Serial Number</option>
@@ -80,7 +80,7 @@
 			  </select>
 			  <br>
 			<p class="centered_text">Conditions</p>
-			  <select class="centered_text" name="select">
+			  <select class="centered_text" name="select" id="cond1">
 			    <option value="selectdefault">Select...</option>
 			    <option value="name">Name</option>
 			    <option value="serial">Serial Number</option>
@@ -89,7 +89,7 @@
 		    	    <option value="manufacturer">Manufacturer</option>
 			    <option value="category">Category</option>
 			  </select>
-			  <select name="cond">
+			  <select name="cond" id="cond2">
 			    <option value="equa">Equals</option>
 			    <option value="dne">Does Not Equal</option>
 			  </select>
@@ -98,7 +98,7 @@
 			<p class="centered_text">Save As</p>
 			<input type="text" id="filename" style="max-width:65%;"/>
 			  <br>
-			  <input type="submit">
+			  <input type="submit" id="submitReport">
 			</form>
 			</div>
 		  </div>
