@@ -85,6 +85,18 @@ html, body{
 	float: left;
 }
 
+.left_items_div_mi_3{
+	width: 100%;
+	height: 82%;
+	float: left;
+}
+
+.left_items_div_mi_4{
+	width: 100%;
+	height: 39%;
+	float: left;
+}
+
 .Adv_search_div{
     width: 100%;
     height: 100%;
@@ -302,6 +314,7 @@ html, body{
 .basic_s{
     width: 100%;
 }
+<<<<<<< HEAD
 
 #basic_search_left{
 	display: inline-block;
@@ -318,3 +331,5 @@ html, body{
 	display: inline-block;
 	width: 10%;
 }
+=======
+>>>>>>> c81a1e93ef316aad2d09ae90657497d9a108516d
