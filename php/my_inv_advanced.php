@@ -15,8 +15,12 @@ define('ROOT_PATH',$mRootpath);
 error_reporting(E_ALL);
 ini_set("display_errors",1);
 
-$user = "tuser";
+// $user = "tuser";
 $user = $_POST["user"];
+$name = $_POST["name"];
+$price = $_POST["price"];
+$cat = $_POST["cat"];
+// echo "\"$name\"" . '<br />';
 
 $database = @mysql_connect('mysql.eecs.ku.edu',$username,$password);
 if(!$database){
@@ -26,8 +30,17 @@ if(!mysql_select_db($username,$database)){
   die('Could not select database: ' . mysql_error());
 }
 
-function pageLoadQuery($database, $un){
+function Query($database, $un, $name, $price, $cat){
 	$sql_query = "SELECT * FROM ITEM WHERE inventory_id IN (SELECT inventory_id FROM HASACCESSTO WHERE user_id=\"$un\") AND is_sold=0";
+	if(!($name == "")){
+		$sql_query .= " AND item_name=\"$name\"";		
+	}
+	if(!($price == "")){
+		$sql_query .= " AND value=\"$price\"";		
+	}
+	if(!($cat == "")){
+		$sql_query .= " AND category=\"$cat\"";		
+	}
 	$sql_query .=" LIMIT 0, 20";
 	//echo $sql_query;
 	$result = mysql_query($sql_query,$database);
@@ -41,10 +54,10 @@ function pageLoadQuery($database, $un){
 	}
 }
 
-$result = pageLoadQuery($database, $user);
+$result = Query($database, $user, $name, $price, $cat);
 $max = mysql_num_rows($result);
 
-
+echo '<div style="height: 8px; width: 100%"></div>';
 for($i=0; $i<$max; $i++){
 	$row = mysql_fetch_row($result);
 	$itemName = $row[2];
