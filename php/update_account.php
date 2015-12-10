@@ -43,7 +43,7 @@ function checkCorrectPassword($user,$oldpass,$database){
 
 $result = checkCorrectPassword($user,$oldpass,$database);
 if(mysql_num_rows($result) == 0){
-	echo "Wrong password!";
+	return "Wrong password!";
 	/*$sql_query = 'INSERT INTO USER (user_id, name_first, name_last, password, phone_num) VALUES ("';
 	$sql_query .= mysql_real_escape_string($user).'","'.mysql_real_escape_string($fname).'","'.mysql_real_escape_string($lname);
 	$sql_query .= '","'.mysql_real_escape_string($pass).'","'.mysql_real_escape_string($phone).'")';
@@ -77,14 +77,12 @@ if(mysql_num_rows($result) == 0){
 		}
 	}
 	*/
-	echo 'No'; 
-	return "NO";
 
 }else{
 	$sql_query = 'UPDATE USER SET name_first="'.$fname.'", name_last="'.$lname.'", password="'.$newpass1.'", phone_num="'.$phone.'" WHERE user_id="' .$user. '"';
 	if(!mysql_query($sql_query))
 	{
-		echo 'fail';
+	
 	}
 	echo 'Yes';
 	return "YES";
