@@ -8,7 +8,7 @@ function updateAcc(uname, fn, ln, phoneNum, old, new1){
 		newpass1: new1
 		
 	},function(data, status){
-		if(data.length == 2){
+		if(data.length != 3){
 			alert("Update failed!");
 		}else{
 			if(data.length == 3){
