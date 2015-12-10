@@ -32,7 +32,7 @@ $sold = $_POST["sold"];
 
 function executeSale($sdate,$ponum,$sellId,$database)
 {
-  $sql_query = "INSERT INTO SALE(purchase_order_num,date,user_id) VALUES ".$ponum.",".$sdate.",".$sellId;
+  $sql_query = "INSERT INTO SALE(purchase_order_num,date,user_id) VALUES ".$ponum.",\"".$sdate."\",".$sellId;
   mysql_query($sql_query);
 }
 
