@@ -49,7 +49,8 @@ function findItem($serial,$invId,$database)
 function updateItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$database)
 {
   $sql_query = "UPDATE ITEM SET item_name=\"".$item."\",value=".$value.",model='".$model."',manufacturer=\"".$man."\",category=\"".$cat."\",item_purhcase_date=\"".$pdate."\",notes=\"".$notes."\" WHERE inventory_id=".$invId." AND serial_number=".$serial;
-  mysql_query($sql_query);
+  echo $sql_query;
+  //mysql_query($sql_query);
 }
 
 if($method == "addItem")
