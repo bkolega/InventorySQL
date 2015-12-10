@@ -1,5 +1,4 @@
 function updateAcc(uname, fn, ln, phoneNum, old, new1){
-	log(phoneNum);
 	$.post("php/update_account.php",{
 		user: uname,
 		fname: fn,
@@ -8,12 +7,12 @@ function updateAcc(uname, fn, ln, phoneNum, old, new1){
 		oldpw: old,
 		newpass1: new1
 		
-	}/*,function(data, status){
+	},function(data, status){
 		if(data.length > 5){
 			$('#test').html(data);
 		}else{
 			if(data.length == 3){
-				window.location="login.html";
+				window.location="my_account.html";
 				return true;
 			}else{
 				alert("Update failed!");
@@ -21,12 +20,12 @@ function updateAcc(uname, fn, ln, phoneNum, old, new1){
 			}
 		}
 
-	}*/);
+	});
 }
 
 $(document).ready(function(){
 	$('#submitUpdate').click(function(e){
-		log($('#userID').val());
+		var username = ($('#userID').val());
 		/*if($('#addFname').val() == ""){
 			e.preventDefault();
 			alert("Missing Data: First Name. Please fill out.");
