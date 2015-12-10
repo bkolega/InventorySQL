@@ -25,12 +25,12 @@ function createReport(p1, p2, p3, p4, p5, p6){
 
 $(document).ready(function(){
 	$('#submitReport').click(function(e){
-		var col1 = $('#c1');
-		var col2 = $('#c2');
-		var col3 = $('#c3');
-		var cond1 = $('#cond1');
-		var cond2 = $('#cond2');
-		var fname = $('#filename');
+		var col1 = $('#c1').val();
+		var col2 = $('#c2').val();
+		var col3 = $('#c3').val();
+		var cond1 = $('#cond1').val();
+		var cond2 = $('#cond2').val();
+		var fname = $('#filename').val();
 		
 		
 
