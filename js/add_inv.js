@@ -90,7 +90,7 @@ $(document).ready(function(){
       .done(function(data){
         data = $.parseJSON(data);
 		//Adds information to update fields for easier modification
-        if(data.item != undefined)
+        if(data.error === undefined)
         {
           $('#modSerial').text($('#modSerNum').val());
           $('#modItem').val(data.item.itemName);
@@ -103,7 +103,7 @@ $(document).ready(function(){
         }
         else
         {
-          alert("Item could not be found in inventory.");
+          alert(data.error);
         }
       });
     }

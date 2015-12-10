@@ -63,18 +63,25 @@ if($method == "addItem")
 else if($method == "findItem")
 {
   $result = findItem($serial,$invId,$database);
-  //Gathers table fields to insert into json response
-  while($row = mysql_fetch_array($result))
+  if(mysql_num_rows($result) == 1)
   {
-    echo '{"item":{';
-    echo '"itemName":"'.$row['item_name'].'",';
-    echo '"value":"'.$row['value'].'",';
-    echo '"model":"'.$row['model'].'",';
-    echo '"man":"'.$row['manufacturer'].'",';
-    echo '"cat":"'.$row['category'].'",';
-    echo '"pdate":"'.$row['item_purchase_date'].'",';
-    echo '"notes":"'.$row['notes'].'"';
-    echo '}}';
+	//Gathers table fields to insert into json response  
+    while($row = mysql_fetch_array($result))
+    {
+      echo '{"item":{';
+      echo '"itemName":"'.$row['item_name'].'",';
+      echo '"value":"'.$row['value'].'",';
+      echo '"model":"'.$row['model'].'",';
+      echo '"man":"'.$row['manufacturer'].'",';
+      echo '"cat":"'.$row['category'].'",';
+      echo '"pdate":"'.$row['item_purchase_date'].'",';
+      echo '"notes":"'.$row['notes'].'"';
+      echo '}}';
+    }
+  }
+  else
+  {
+	echo '{"error":"Item could not be found in inventory."}';
   }
 }
 else if($method == "modItem");
