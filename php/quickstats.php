@@ -29,6 +29,7 @@ $user = $_POST["user"];
 
 function getNumItems($database, $un){
 	$sql_query = "SELECT COUNT(*) as c FROM ITEM WHERE inventory_id IN (SELECT inventory_id FROM HASACCESSTO WHERE user_id=\"$un\")";
+	$sql_query .= " AND is_sold=0";
 	$result = mysql_query($sql_query,$database);
 	if(!$result){
 		echo mysql_errno($database) . ": " . mysql_error($database). "\n";

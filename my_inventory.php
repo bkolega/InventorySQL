@@ -58,6 +58,8 @@
 			  <ul>
 			   <li><a href="login.html">Logout</a></li>
 			   <li><a href="add_inv.html">Add/Modify Inventory</a></li>
+			   <li><a href="my_account.html">My Account</a></li>
+			   <li><a href="my_reports.html">My Reports</a></li>
 			  </ul>
 			  <br clear="all" />
 			  <p class="centered_text">Advanced Search</p>
