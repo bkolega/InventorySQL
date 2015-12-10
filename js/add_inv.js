@@ -15,9 +15,10 @@ function AddModItems(type,ser){
 
 function SellItem(sdate,poNum,sellerId,items,sold){
   $.post("php/sale.php",{
+    invId: parseInt($('#inventoryID').val()),
     sdate: sdate,
     ponum: poNum,
-    sellID: parseInt(sellerId),
+    sellId: sellerId,
     items: items,
     sold: sold
   });
@@ -56,7 +57,7 @@ $(document).ready(function(){
     {
       item = item.split(",");
     }
-    SellItem($('#regSale').val(),$('#regPONum').val(),$('#regUID').val(),item,soldVal);
+    SellItem($('#regSale').val(),$('#regPONum').val(),parseInt($('#regUID').val()),item,soldVal);
   });
 
   $('#findItem').click(function(){
