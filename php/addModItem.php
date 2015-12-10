@@ -36,7 +36,7 @@ $notes = $_POST['notes'];
 
 function addNewItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$database)
 {
-  $sql_query = "INSERT INTO ITEM(inventory_id,serial_number, item_name,value, model,manufacturer,category,item_purchase_date,notes,is_sold) VALUES (".$invId.",".$serial.",\"".$item."\",".$value.",\"".$model."\",\"".$man."\",\"".$cat."\",".$pdate.",\"".$notes."\",0)";
+  $sql_query = "INSERT INTO ITEM(inventory_id,serial_number, item_name,value, model,manufacturer,category,item_purchase_date,notes,is_sold) VALUES (".$invId.",".$serial.",\"".$item."\",".$value.",\"".$model."\",\"".$man."\",\"".$cat."\",\"".$pdate."\",\"".$notes."\",0)";
   mysql_query($sql_query);
 }
 
@@ -48,7 +48,7 @@ function findItem($serial,$invId,$database)
 
 function updateItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$database)
 {
-  $sql_query = "UPDATE ITEM SET item_name='".$item."',value=".$value.",model='".$model."',manufacturer='".$man."',category='".$cat."',item_purhcase_date=".$pdate.",notes='".$notes."' WHERE inventory_id=".$invId." AND serial_number=".$serial;
+  $sql_query = "UPDATE ITEM SET item_name=\"".$item."\",value=".$value.",model='".$model."',manufacturer=\"".$man."\",category=\"".$cat."\",item_purhcase_date=\"".$pdate."\",notes=\"".$notes."\" WHERE inventory_id=".$invId." AND serial_number=".$serial;
   mysql_query($sql_query);
 }
 
