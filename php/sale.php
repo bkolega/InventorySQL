@@ -30,6 +30,8 @@ $sellId = $_POST["sellId"];
 $invId = $_POST["invId"];
 $sold = $_POST["sold"];
 
+echo $items;
+
 function executeSale($sdate,$ponum,$sellId,$database)
 {
   $sql_query = "INSERT INTO SALE(purchase_order_num,date,user_id) VALUES (".$ponum.",\"".$sdate."\",".$sellId.")";
