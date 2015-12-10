@@ -1,4 +1,5 @@
 function updateAcc(uname, fn, ln, phoneNum, old, new1){
+	log(phoneNum);
 	$.post("php/update_account.php",{
 		user: uname,
 		fname: fn,
@@ -24,8 +25,8 @@ function updateAcc(uname, fn, ln, phoneNum, old, new1){
 }
 
 $(document).ready(function(){
-	log($('#userID').val());
 	$('#submitUpdate').click(function(e){
+		log($('#userID').val());
 		/*if($('#addFname').val() == ""){
 			e.preventDefault();
 			alert("Missing Data: First Name. Please fill out.");
