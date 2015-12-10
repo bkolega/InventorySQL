@@ -15,7 +15,7 @@ function AddModItems(type,ser){
 
 function SellItem(sdate,poNum,sellerId,items,sold){
   $.post("php/sale.php",{
-    sdate: new Date(sdate),
+    sdate: sdate,
     ponum: poNum,
     sellID: parseInt(sellerId),
     items: items,
