@@ -23,8 +23,9 @@ if(!mysql_select_db($username,$database)){
   die('Could not select database: ' . mysql_error());
 }
 
-//$user = $_POST["user"];
-$user = "tuser";
+$user = $_POST["user"];
+// echo $user . '<br />';
+// $user = "tuser";
 
 function getNumItems($database, $un){
 	$sql_query = "SELECT COUNT(*) as c FROM ITEM WHERE inventory_id IN (SELECT inventory_id FROM HASACCESSTO WHERE user_id=\"$un\")";

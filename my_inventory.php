@@ -71,13 +71,13 @@
 	  </div>
 	  <div class="my_inv_expanding">
 		<div style="height: 8px; width: 100%"></div>
-			<script type="text/javascript">
+			<!--<script type="text/javascript">
 				$(document).ready(function(){
 					$.post("php/my_inv.php").done(function(d){
 						$('div.my_inv_expanding').append(d);
 					});
 			})
-			</script>
+			</script>-->
 	  </div>
 	</div>
     
