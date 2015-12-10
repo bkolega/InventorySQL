@@ -33,7 +33,6 @@ $sold = $_POST["sold"];
 function executeSale($sdate,$ponum,$sellId,$database)
 {
   $sql_query = "INSERT INTO SALE(purchase_order_num,date,user_id) VALUES (".$ponum.",\"".$sdate."\",".$sellId.")";
-  echo $sql_query;
   mysql_query($sql_query);
 }
 
@@ -41,7 +40,7 @@ executeSale($sdate,$ponum,$sellId,$database);
 
 foreach($items as $item)
 {
-  //$sql_query = "UPDATE ITEM SET is_sold=".$sold." WHERE inventory_id=".$invId." AND serial_number=".$item;
+  $sql_query = "UPDATE ITEM SET is_sold=".$sold." WHERE inventory_id=".$invId." AND serial_number=".$item;
   mysql_query($sql_query);
 }
 
