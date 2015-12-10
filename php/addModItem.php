@@ -36,9 +36,8 @@ $notes = $_POST['notes'];
 
 function addNewItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$database)
 {
-  $sql_query = "INSERT INTO ITEM(inventory_id,serial_number, item_name,value, model,manufactuer,category,item_purchase_date,notes,is_sold) VALUES (".$invId.",".$serial.",\"".$item."\",".$value.",\"".$model."\",\"".$man."\",\"".$cat."\",".$pdate.",\"".$notes."\",0)";
-  echo $sql_query;
-  //mysql_query($sql_query);
+  $sql_query = "INSERT INTO ITEM(inventory_id,serial_number, item_name,value, model,manufacturer,category,item_purchase_date,notes,is_sold) VALUES (".$invId.",".$serial.",\"".$item."\",".$value.",\"".$model."\",\"".$man."\",\"".$cat."\",".$pdate.",\"".$notes."\",0)";
+  mysql_query($sql_query);
 }
 
 function findItem($serial,$invId,$database)
