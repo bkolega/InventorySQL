@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html class="my_in_h">
   <head>
     <title>My Account</title>
     <link rel="stylesheet" href="css/main.css" />
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="js/add_inv.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/session.js"></script>
+    <script type="text/javascript" src="js/my_inventory.js"></script>
   </head>
-  <body>
-    <div class="top_spacer">
-    </div>
+  <body class="my_in_h">
+    <div class="top_spacer"></div>
     
     <div class="top_bar">
-      <div class="logo_box">
-	    <p class="centered_text">LOGO</p>
+      <div class="inv_logo_box">
+	    <img src="logo.jpg" alt="WISQL" style="max-height:100%; width:auto; margin: auto; padding-left: 25%">
       </div>
       <div class="my_inventory_box">
 	    <h3 class="centered_text">My Account</h3>
@@ -21,85 +21,84 @@
     
     <div style="height:8px"></div> <!-- SPACER -->
 
-    <div class="main_div">
+    <div class="main_div_mi">
       <div style="height:2px"></div>
-      <div class="left_items_div">
-	    <div class="height:20px"></div>
-	    <div class="Adv_search_div">
-	      <br />
-	      <p class="centered_text">Navigation</p>
-	      <ul>
-	       <li><a href="login.html">Logout</a></li>
-	       <li><a href="my_inventory.html">My Inventory</a></li>
-		<li><a href="my_reports.html">My Reports</a></li>
-	      </ul>
-	    </div>
+      <div class="basic_search_div">
+	<table id="basic_s_table">
+	  <tr>
+	    <td>
+	    </td>
+	  <tr>
+	</table>
       </div>
-      <div class="listed_items_div">
-       <div class="cases">
-	    <span>My Information</span>
-	    <div class="addModRegDiv">
-	      <table id="addTable">
-	        <colgroup>
-	          <col width="12%">
-	          <col width="20%">
-	          <col width="12%">
-	          <col width="20%">
-	          <col width="12%">
-	          <col width="20%">
-	        </colgroup>
-	        <body>
-	          <tr>
-	            <td>First Name:</td>
-	            <td><input type="text" id="firstName" /></td>
-	            <td>Last Name:</td>
-	            <td><input type="text" id="lastName" /></td>
-	          </tr>
-	          <tr>
-	            <td>Old Password:</td>
-	            <td><input type="password" id="oldPassword" /></td>
-	            <td>Phone Number:</td>
-	            <td><input type="text" id="phoneNumber" /></td>
-	          </tr>
-	          <tr>
-	            <td>New Password:</td>
-	            <td><input type="password" id="newPassword" /></td>
-	          </tr>	
-	          <tr>
-	            <td>Confirm New Password:</td>
-	            <td><input type="password" id="confirmPassword" /></td>
-	          </tr>	
-	          <tr>
-	            <td><input id="addItemData" type="button" value="Update" /></td>
-	          </tr>
-	        </body>
-	      </table>
-	      <br />
-	    </div>
-	   </div>
-	  
-      </div>
-    </div>
+      	<div class="left_items_div_mi">
+		  <div class="left_items_div_mi_1">
+			<div class="Adv_search_div">
+			  <br />
+			  <p class="centered_text">Navigation</p>
+			  <ul>
+			   <li><a href="login.html">Logout</a></li>
+			   <li><a href="my_inventory.html">My Inventory</a></li>
+			   <li><a href="my_account.html">My Account</a></li>
+			  </ul>
+			  <br clear="all" />
+			</div>
+		  </div>
+		  <div style="height:7px; float: left; width: 100%;"></div>
+	  </div>
+	  <div class="my_inv_expanding">
+		<div style="height: 8px; width: 100%"></div>
+			<h4 class="centered_text">Account Details</h4>
+			</br>
+			 <form method="POST" style="padding-left:3em" id="ChangeAcc" action="my_inventory.php">
+		<br />
+		First Name:&nbsp;
+		<input type="text" id="UID" name="firstname" /><br/>
+		Last Name:&nbsp;
+		<input type="text" id="UPW" name="lastname" />
+		<br />
+		Phone Number:&nbsp;
+		<input type="text" id="UPW" name="phone" />
+		<br />
+		<p>Change Password</p>
+		Old Password:&nbsp;
+		<input type="password" id="UPW" name="oldpw" />
+		<br />
+		New Password:&nbsp;
+		<input type="password" id="UPW" name="newpw" />
+		<br />
+		Confirm New Password:&nbsp;
+		<input type="password" id="UPW" name="confirmnewpw" />
+		<br /><br />
+		<input type="Submit" id="submitLogon" value="Login" />
+	       </form>
+	  </div>
+	</div>
     
     <div style="height: 8px"></div> <!-- SPACER -->
 
-    <div class="copyright_div">
+    <div class="copyright_div_mi">
       <div class="copyright_box">
 	    <p class="centered_text">
 	      <script type="text/javascript">
             var date = new Date();
             var yyyy = date.getFullYear();
+			var data;
             document.write("WISQL &copy;"+yyyy);
           </script>
 	    </p>
       </div>
     </div>
     <script type="text/javascript">
-      $(document).ready(function(){
+      $(document).ready(function(){/*
         $("html").width(window.innerWidth-15);
         $("html").height(window.innerHeight-15);
         $("body").width(window.innerWidth-15);
-        $("body").height(window.innerHeight-15);
+        $("body").height(window.innerHeight-15);*/
+		$.post("php/view.php").done(function(d){
+			$('p.centered_text').last().append("<br />");
+			$('p.centered_text').last().append(d);
+		});
       });
     </script>
   </body>
