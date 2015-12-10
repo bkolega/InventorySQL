@@ -42,45 +42,25 @@ $(document).ready(function(){
 			alert("Empty fields detected!");
 			return;
 		}
-		/*if($('#addFname').val() == ""){
-			e.preventDefault();
-			alert("Missing Data: First Name. Please fill out.");
-		}else if($('#addLname').val() == ""){
-			e.preventDefault();
-			alert("Missing Data: Last Name. Please fill out.");
-		}else if($('#addPhone').val() == ""){
-			e.preventDefault();
-			alert("Missing Data: Phone Number. Please fill out.");
-		}else if($('#addUsername').val() == ""){
-			e.preventDefault();
-			alert("Missing Data: Username. Please fill out.");
-		}else if($('#addPassword').val() == ""){
-			e.preventDefault();
-			alert("Missing Data: Password. Please fill out.");
-		}else if($('#addFname').val().indexOf(';') !== -1 || $('#addFname').val().indexOf(',') !== -1 || $('#addFname').val().indexOf('=') !== -1 || $('#addFname').val().indexOf('*') !== -1){
+
+
+		if($('#fn').val().indexOf(';') !== -1 || $('#fn').val().indexOf(',') !== -1 || $('#fn').val().indexOf('=') !== -1 || $('#fn').val().indexOf('*') !== -1){
 			e.preventDefault();
 			alert("Invalid Character Detected");
-		}else if($('#addLname').val().indexOf(';') !== -1 || $('#addLname').val().indexOf(',') !== -1 || $('#addLname').val().indexOf('=') !== -1 || $('#addLname').val().indexOf('*') !== -1){
+		}else if($('#ln').val().indexOf(';') !== -1 || $('#ln').val().indexOf(',') !== -1 || $('#ln').val().indexOf('=') !== -1 || $('#ln').val().indexOf('*') !== -1){
 			e.preventDefault();
 			alert("Invalid Character Detected");
-		}else if($('#addPhone').val().indexOf(';') !== -1 || $('#addPhone').val().indexOf(',') !== -1 || $('#addPhone').val().indexOf('=') !== -1 || $('#addPhone').val().indexOf('*') !== -1){
+		}else if($('#pn').val().indexOf(';') !== -1 || $('#pn').val().indexOf(',') !== -1 || $('#pn').val().indexOf('=') !== -1 || $('#pn').val().indexOf('*') !== -1){
 			e.preventDefault();
 			alert("Invalid Character Detected");
-		}else if($('#addUsername').val().indexOf(';') !== -1 || $('#addUsername').val().indexOf(',') !== -1 || $('#addUsername').val().indexOf('=') !== -1 || $('#addUsername').val().indexOf('*') !== -1){
+		}else if($('#npw1').val().indexOf(';') !== -1 || $('#npw1').val().indexOf(',') !== -1 || $('#npw1').val().indexOf('=') !== -1 || $('#npw1').val().indexOf('*') !== -1){
 			e.preventDefault();
 			alert("Invalid Character Detected");
-		}else if($('#addPassword').val().indexOf(';') !== -1 || $('#addPassword').val().indexOf(',') !== -1 || $('#addPassword').val().indexOf('=') !== -1 || $('#addPassword').val().indexOf('*') !== -1){
-			e.preventDefault();
-			alert("Invalid Character Detected");
-		}else if($('#addPhone').val().indexOf(')') !== -1 || $('#addPhone').val().indexOf('(') !== -1 || $('#addPhone').val().indexOf('-') !== -1 || $('#addPhone').val().indexOf(' ') !== -1 || isNaN($('#addPhone').val())){
+		}else if($('#pn').val().indexOf(')') !== -1 || $('#pn').val().indexOf('(') !== -1 || $('#pn').val().indexOf('-') !== -1 || $('#pn').val().indexOf(' ') !== -1 || isNaN($('#pn').val())){
 			e.preventDefault();
 			alert("Please Enter Only Digits for phone number");
-		}else{
-			addUser($('#addUsername').val(),$('#addPassword').val(),$('#addFname').val(),$('#addLname').val(),$('#addPhone').val(),$('#admintag').val());
-			e.preventDefault();
-			
-		}*/
-
+		} else {
 		updateAcc($('#userID').val(),$('#fn').val(),$('#ln').val(),$('#pn').val(),$('#opw').val(),$('#npw1').val());
+		}
 	});
 });
