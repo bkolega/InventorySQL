@@ -30,8 +30,6 @@ $sellId = $_POST["sellId"];
 $invId = $_POST["invId"];
 $sold = $_POST["sold"];
 
-echo $items;
-
 function executeSale($sdate,$ponum,$sellId,$database)
 {
   $sql_query = "INSERT INTO SALE(purchase_order_num,date,user_id) VALUES (".$ponum.",\"".$sdate."\",".$sellId.")";
@@ -40,10 +38,17 @@ function executeSale($sdate,$ponum,$sellId,$database)
 
 executeSale($sdate,$ponum,$sellId,$database);
 
-foreach($items as $item)
+if(is_array($items) || is_object($items))
 {
-  $sql_query = "UPDATE ITEM SET is_sold=".$sold." WHERE inventory_id=".$invId." AND serial_number=".$item;
-  echo $sql_query;
+  foreach($items as $item)
+  {
+    $sql_query = "UPDATE ITEM SET is_sold=".$sold." WHERE inventory_id=".$invId." AND serial_number=".$item;
+    mysql_query($sql_query);
+  }
+}
+else
+{
+  $sql_query = "UPDATE ITEM SET is_sold=".$sold." WHERE inventory_id=".$invId." AND serial_number=".$items;
   mysql_query($sql_query);
 }
 
