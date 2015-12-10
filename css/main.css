@@ -55,10 +55,10 @@ html, body{
 
 .main_div_mi{
     width: 100%;
-    height: 80%;
-    height: -webkit-calc(80% - 100px);
-    height: -moz-calc(80% - 100px);
-    height: calc(80% - 100px);
+    height: 95%;
+    height: -webkit-calc(95% - 100px);
+    height: -moz-calc(95% - 100px);
+    height: calc(95% - 100px);
 }
 
 .left_items_div{
@@ -299,6 +299,22 @@ html, body{
 	width: 49%;
 	display: inline-block;
 }
-.basic_s_table{
+.basic_s{
     width: 100%;
+}
+
+#basic_search_left{
+	display: inline-block;
+	width: 10%;
+	text-align: right;
+}
+
+#basic_search_center{
+	display: inline-block;
+	width: 60%;
+}
+
+#basic_search_right{
+	display: inline-block;
+	width: 10%;
 }

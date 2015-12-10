@@ -24,6 +24,18 @@
     <div class="main_div_mi">
       <div style="height:2px"></div>
       <div class="basic_search_div">
+		<div id="basic_s">
+			<div id="basic_search_left">
+				<h3>Search: </h3>
+			</div>
+			<div id="basic_search_center">
+				&nbsp <input type="text" id="basic_name" style="width: 95%;" placeholder="Enter Item Name"/>
+			</div>
+			<div id="basic_search_right">
+				<input type="button" id="basic_go" value="GO"/>
+			</div>
+		</div>
+	  <!--
 	<table id="basic_s_table">
 	  <tr>
 	    <td>
@@ -36,7 +48,7 @@
 	      <input type="button" id="basic_go" value="GO"/>
 	    </td>
 	  <tr>
-	</table>
+	</table>-->
       </div>
       	<div class="left_items_div_mi">
 		  <div class="left_items_div_mi_1">

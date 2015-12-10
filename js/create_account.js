@@ -55,6 +55,9 @@ $(document).ready(function(){
 		}else if($('#addPassword').val().indexOf(';') !== -1 || $('#addPassword').val().indexOf(',') !== -1 || $('#addPassword').val().indexOf('=') !== -1 || $('#addPassword').val().indexOf('*') !== -1){
 			e.preventDefault();
 			alert("Invalid Character Detected");
+		}else if($('#addPhone').val().indexOf(')') !== -1 || $('#addPhone').val().indexOf('(') !== -1 || $('#addPhone').val().indexOf('-') !== -1 || $('#addPhone').val().indexOf(' ') !== -1 || isNaN($('#addPhone').val())){
+			e.preventDefault();
+			alert("Please Enter Only Digits for phone number");
 		}else{
 			addUser($('#addUsername').val(),$('#addPassword').val(),$('#addFname').val(),$('#addLname').val(),$('#addPhone').val(),$('#admintag').val());
 			e.preventDefault();
