@@ -24,24 +24,26 @@ if(!mysql_select_db($username,$database)){
   die('Could not select database: ' . mysql_error());
 }
 
-$user = $_POST["user"];
+$column1 = $_POST["col1"];
+$column2 = $_POST["col2"];
+$column3 = $_POST["col3"];
+$condition1 = $_POST["cond1"];
+$condition2 = $_POST["cond2"];
 $fname = $_POST["fname"];
-$lname = $_POST["lname"];
-$phone = $_POST["phone"];
-$oldpass = $_POST["oldpw"];
-$newpass1 = $_POST["newpass1"];
 
-function checkValid($user,$oldpass,$database){
-	$sql_query = "SELECT password FROM USER WHERE user_id='".$user."' AND password = '" .$oldpass."'";
+function getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$fname$database){
+	$stored_query = "SELECT " .$column1. ", " .$column2. ", " .$column3. " FROM USERS, ITEM WHERE user_id = " .$user. "";
+	//if($condition == "Equals")
+	//	$stored_query +=
 	$result= mysql_query($sql_query,$database);
 	if(!$result){
 		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
 		echo $sql_query;
+	} else {
+		echo 'HELLO';
 	}
 	return $result;
 }
-
-function createQuery($
 
 $result = checkCorrectPassword($user,$oldpass,$database);
 if(mysql_num_rows($result) == 0){
