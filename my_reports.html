@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="js/session.js"></script>
-    <script type="text/javascript" src="js/my_inventory.js"></script>
+    <script type="text/javascript" src="js/my_reports.js"></script>
   </head>
   <body class="my_in_h">
     <div class="top_spacer"></div>
@@ -52,33 +52,46 @@
 			<form action="generate_report.php">
 			<p class="centered_text">Columns</p>
 			  <select class="centered_text" name="col1">
+			   <option value="selectdefault">Select...</option>
 			    <option value="name">Name</option>
 			    <option value="serial">Serial Number</option>
 			    <option value="model">Model</option>
+			    <option value="value">Value</option>
+		    	    <option value="manufacturer">Manufacturer</option>
+			    <option value="category">Category</option>
 			  </select>
 			  <select name="col2">
+			    <option value="selectdefault">Select...</option>
 			    <option value="name">Name</option>
 			    <option value="serial">Serial Number</option>
 			    <option value="model">Model</option>
+			    <option value="value">Value</option>
+		    	    <option value="manufacturer">Manufacturer</option>
+			    <option value="category">Category</option>
 			  </select>
 			  <select name="col3">
+			    <option value="selectdefault">Select...</option>
 			    <option value="name">Name</option>
 			    <option value="serial">Serial Number</option>
 			    <option value="model">Model</option>
+			    <option value="value">Value</option>
+		    	    <option value="manufacturer">Manufacturer</option>
+			    <option value="category">Category</option>
 			  </select>
 			  <br>
 			<p class="centered_text">Conditions</p>
 			  <select class="centered_text" name="select">
+			    <option value="selectdefault">Select...</option>
 			    <option value="name">Name</option>
 			    <option value="serial">Serial Number</option>
 			    <option value="model">Model</option>
+			    <option value="value">Value</option>
+		    	    <option value="manufacturer">Manufacturer</option>
+			    <option value="category">Category</option>
 			  </select>
 			  <select name="cond">
 			    <option value="equa">Equals</option>
 			    <option value="dne">Does Not Equal</option>
-			    <option value="sim">Is Similar</option>
-			    <option value="great">Is Greater Than</option>
-			    <option value="less">Is Less Than</option>
 			  </select>
 
 			<input type="text" id="conditionval" style="max-width:65%;"/>
