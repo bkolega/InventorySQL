@@ -38,7 +38,7 @@
 			  <p class="centered_text">Navigation</p>
 			  <ul>
 			   <li><a href="login.html">Logout</a></li>
-			   <li><a href="my_inventory.html">My Inventory</a></li>
+			   <li><a href="my_inventory.php">My Inventory</a></li>
 			   <li><a href="my_account.html">My Account</a></li>
 			  </ul>
 			  <br clear="all" />
@@ -106,11 +106,6 @@
 	  <div class="my_inv_expanding">
 		<div style="height: 8px; width: 100%"></div>
 			<script type="text/javascript">
-				$(document).ready(function(){
-					$.post("php/my_inv.php").done(function(d){
-						$('div.my_inv_expanding').append(d);
-					});
-			})
 			</script>
 	  </div>
 	</div>
