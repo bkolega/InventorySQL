@@ -36,9 +36,11 @@ $(document).ready(function(){
 		{
 			e.preventDefault();
 			alert("New passwords do not match!");
+			return;
 		} if(first == "" || last == "" || oldpw == "" || new1 == "" || new2 =="") {
 			e.preventDefault();
 			alert("Empty fields detected!");
+			return;
 		}
 		/*if($('#addFname').val() == ""){
 			e.preventDefault();
