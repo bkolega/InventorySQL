@@ -24,6 +24,7 @@ function updateAcc(uname, fn, ln, phoneNum, old, new1){
 }
 
 $(document).ready(function(){
+	log($('#userID').val());
 	$('#submitUpdate').click(function(e){
 		/*if($('#addFname').val() == ""){
 			e.preventDefault();
