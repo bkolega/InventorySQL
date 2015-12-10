@@ -30,16 +30,21 @@ $sellId = $_POST["sellId"];
 $invId = $_POST["invId"];
 $sold = $_POST["sold"];
 
+//Add sale record to sale table.
 function executeSale($sdate,$ponum,$sellId,$database)
 {
   $sql_query = "INSERT INTO SALE(purchase_order_num,date,user_id) VALUES (".$ponum.",\"".$sdate."\",".$sellId.")";
   mysql_query($sql_query);
 }
 
+//Call function to add record
 executeSale($sdate,$ponum,$sellId,$database);
 
+//Checks wheter item is an array or object (multiple serial numbers)
+//If only one serial number doesn't need foreach to iterate through and can just make one call
 if(is_array($items) || is_object($items))
 {
+  //Uses foreach to iterate through serial numbers given
   foreach($items as $item)
   {
     $sql_query = "UPDATE ITEM SET is_sold=".$sold." WHERE inventory_id=".$invId." AND serial_number=".$item;

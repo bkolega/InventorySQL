@@ -25,6 +25,7 @@ if(!mysql_select_db($username,$database)){
 
 $user = $_POST["un"];
 
+//Returns inventory id given user id from Query
 function getInvId($user,$database)
 {
   $sqlQuery = 'SELECT * FROM HASACCESSTO WHERE user_id="'.$user.'"';
@@ -33,6 +34,7 @@ function getInvId($user,$database)
 
 $result = getInvId($user,$database);
 
+//Returns inventory id to JavaScript
 while($row = mysql_fetch_array($result))
 {
   echo $row['inventory_id'];

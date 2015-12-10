@@ -26,13 +26,18 @@ if(!mysql_select_db($username,$database)){
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 
+
+//Given username and password returns results of query.
 function validateLogin($user,$pass,$database)
 {
   $sql_query = 'SELECT * FROM USER WHERE user_id = "'.$user.'" AND password = "'.$pass.'"';
   return mysql_query($sql_query,$database);
 }
 
+//Call to get recrods from user table.
 $result = validateLogin($user,$pass,$database);
+
+//Checks if record exists or not
 if(mysql_num_rows($result) == 0)
 {
   echo "NO";

@@ -31,24 +31,27 @@ $method = $_POST['method'];
 $session = $_POST['session'];
 $user = $_POST['user'];
 
+//Creates an entry on table given user id and session id
 function createSessionUserEntry($session,$user,$database)
 {
   $sqlQuery = 'INSERT INTO SESSION(user_id,session_id) VALUES("'.$user.'","'.$session.'")';
   mysql_query($sqlQuery);
 }
 
+//Retrieves record based upon session id given
 function retrieveUser($session,$database)
 {
   $sqlQuery = 'SELECT * FROM SESSION WHERE session_id='.$session;
   return mysql_query($sqlQuery);
 }
 
+//Deletes record of user id and session id from table
 function removeSessionUserEntry($session,$user,$database)
 {
   $sqlQuery = 'DELETE FROM SESSION WHERE session_id='.$session;
   mysql_query($sqlQuery);
 }
-
+//Checks method type and calls appropriate function
 if($method == "create")
 {
   createSessionUserEntry($session,$user,$database);
@@ -56,6 +59,7 @@ if($method == "create")
 else if($method == "retrieve")
 {
   $result = retrieveUser($session,$database);
+  //Fetch and return user id
   while($row = mysql_fetch_array($result)){
 	echo $row['user_id'];
   }

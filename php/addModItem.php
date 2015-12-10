@@ -34,24 +34,28 @@ $pdate = $_POST['pdate'];
 $value = $_POST['value'];
 $notes = $_POST['notes'];
 
+//Adds new item to inventory.
 function addNewItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$database)
 {
   $sql_query = "INSERT INTO ITEM(inventory_id,serial_number, item_name,value, model,manufacturer,category,item_purchase_date,notes,is_sold) VALUES (".$invId.",".$serial.",\"".$item."\",".$value.",\"".$model."\",\"".$man."\",\"".$cat."\",\"".$pdate."\",\"".$notes."\",0)";
   mysql_query($sql_query);
 }
 
+//Finds an item based on inventory id and serial number and returns the record.
 function findItem($serial,$invId,$database)
 {
   $sql_query = 'SELECT * FROM ITEM WHERE inventory_id="'.$invId.'" AND serial_number="'.$serial.'"';
   return mysql_query($sql_query);
 }
 
+//Update an item record with values provided
 function updateItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$database)
 {
   $sql_query = "UPDATE ITEM SET item_name=\"".$item."\",value=".$value.",model='".$model."',manufacturer=\"".$man."\",category=\"".$cat."\",item_purchase_date=\"".$pdate."\",notes=\"".$notes."\" WHERE inventory_id=".$invId." AND serial_number=".$serial;
   mysql_query($sql_query);
 }
 
+//Checks method type passed and calls appropriate function
 if($method == "addItem")
 {
   addNewItem($invId,$serial,$item,$model,$cat,$man,$pdate,$value,$notes,$database);
@@ -59,6 +63,7 @@ if($method == "addItem")
 else if($method == "findItem")
 {
   $result = findItem($serial,$invId,$database);
+  //Gathers table fields to insert into json response
   while($row = mysql_fetch_array($result))
   {
     echo '{"item":{';
