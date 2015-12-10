@@ -1,3 +1,5 @@
+//Call to php to either add item to inventory or update one
+//Values passed in are type ("add" or "mod") and serial number
 function AddModItems(type,ser){
   $.post("php/addModItem.php",{
     method: type+"Item",
@@ -13,6 +15,8 @@ function AddModItems(type,ser){
   });
 }
 
+//Sends Data to Sale PHP to add sale information
+//And update sold field for items sold in Item table.
 function SellItem(sdate,poNum,sellerId,items,sold){
   $.post("php/sale.php",{
     invId: parseInt($('#inventoryID').val()),
@@ -25,6 +29,7 @@ function SellItem(sdate,poNum,sellerId,items,sold){
 }
 
 $(document).ready(function(){
+  //Set value based on radio clicked for sold value for SellItem().
   $('input[name="itemSold"]').click(function(){
     if($(this).val() === "Y")
     {
@@ -38,10 +43,12 @@ $(document).ready(function(){
     }
   });
   
+  //Passes Data to addModItem()
   $('#addItemData').click(function(){
     AddModItems("add",parseInt($('#addSerial').val()));
   });
-
+  
+  //Gathers Data and passes it sellItem()
   $('#sellItem').click(function(){
     var soldVal = null;
     if($('input[name="itemSold"][checked="checked"]').val() === "Y")
@@ -59,7 +66,8 @@ $(document).ready(function(){
     }
     SellItem($('#regSale').val(),$('#regPONum').val(),parseInt($('#regUID').val()),item,soldVal);
   });
-
+  
+  //Passes serial number and inventory id to find an item
   $('#findItem').click(function(){
     if(isNaN($('#modSerNum').val()))
     {
@@ -81,6 +89,7 @@ $(document).ready(function(){
       })
       .done(function(data){
         data = $.parseJSON(data);
+		//Adds information to update fields for easier modification
         if(data.error === undefined)
         {
           $('#modSerial').text($('#modSerNum').val());
@@ -99,7 +108,8 @@ $(document).ready(function(){
       });
     }
   });
-
+  
+  //Passes Data to addModItem()
   $('#modFullItem').click(function(){
      AddModItems("mod",parseInt($('#modSerNum').val()));
   });
