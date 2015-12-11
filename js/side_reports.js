@@ -20,6 +20,17 @@ function loadReports(userID) {
 	});
 }
 
+function presentReport(userID, 
+{
+
+	$.post("php/update_report.php",{
+		user: userID
+	},function(data, status){
+		$('#reportlist').html("");
+		$('#reportlist').append(data);
+	});
+}
+
 $(document).ready(function(){
    
 
@@ -32,9 +43,9 @@ $(document).ready(function(){
   
   //Logout link is a anchor link so it checks if the link text is logout
   //Makes call to clear the session id, user id record from the table.
-  /* $('a').click(function(){
-    if($(this).id() !== "Logout"){
-		side_reports(userID, $(this).text());
+   $('a').click(function(){
+    if($(this).id() !== "Logout" && $(this).id() !== "My Inventory" && $(this).id() !== "My Account"){
+		presentReport(userID, $(this).text());
     }
-  }); */
+  }); 
 });

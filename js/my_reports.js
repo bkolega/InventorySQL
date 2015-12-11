@@ -1,5 +1,3 @@
-//get username
-
 function createReport(p1, p2, p3, p4, p5, p6){
 	$.post("php/update_report.php",{
 		col1: p1,
@@ -10,7 +8,8 @@ function createReport(p1, p2, p3, p4, p5, p6){
 		fname: p6
 		
 	},function(data, status){
-		
+		$('#ReportTable').html("");
+		$('#ReportTable').append(data);
 	});
 }
 

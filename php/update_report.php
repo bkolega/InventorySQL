@@ -32,30 +32,32 @@ $condition2 = $_POST["cond2"];
 $fname = $_POST["fname"];
 
 function getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$fname,$database){
-	$sql_query= "SELECT " .$column1. ", " .$column2. ", " .$column3. " FROM USERS, ITEM WHERE user_id = " .$user. "";
-	//if($condition == "Equals")
-	//	$stored_query +=
+	$sql_query= "SELECT it." .$column1. ", it." .$column2. ", it." .$column3. " FROM INVENTORY AS inv, ITEM AS it WHERE inv.inv_name LIKE '" .$user. "%'";
 	$result= mysql_query($sql_query,$database);
 	if(!$result){
 		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
 		echo $sql_query;
-	} else {
-		echo 'HELLO';
 	}
 	return $result;
 }
 
-$result = checkCorrectPassword($user,$oldpass,$database);
+$result = getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$fname,$database);
+
+echo "<table>"; // start a table tag in the HTML
+echo "<tr><td>$column1<tr><td>$column2<tr><td>$column3<tr><td>";
+while($row = mysql_fetch_array($result)){   //Creates a loop to loop through results
+echo "<tr><td>" . $row[$column1] . "</td><td>" . $row[$column2] . "</td></tr>" . $row[$column3] . "</td></tr>";  //$row['index'] the index here is a field name
+}
+
+echo "</table>"; //Close the table in HTML
+
+mysql_close(); //Make sure to close out the database connection
+
 if(mysql_num_rows($result) == 0){
-	echo "<script type='text/javascript'>alert('Wrong password!');</script>";
+	//echo "<script type='text/javascript'>alert('Wrong password!');</script>";
 	return "NO";
 
 }else{
-	$sql_query = 'UPDATE USER SET name_first="'.$fname.'", name_last="'.$lname.'", password="'.$newpass1.'", phone_num="'.$phone.'" WHERE user_id="' .$user. '"';
-	if(!mysql_query($sql_query))
-	{
-		
-	}
 	echo 'Yes';
 	return "YES";
 }
