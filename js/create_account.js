@@ -1,3 +1,10 @@
+/*
+ *	Author: Tyler Steiner
+ *	For: WISQL Project; EECS 647
+ *	Date: 12/11/2015
+ *	File: create_account.js
+*/
+// Function passes all the info gathered from the customer to ca.php for processing
 function addUser(uname, upass, name_f, name_l, phoneNum, admin){
 	$.post("php/ca.php",{
 		user: uname,
@@ -8,13 +15,16 @@ function addUser(uname, upass, name_f, name_l, phoneNum, admin){
 		isAdmin: admin
 		
 	},function(data, status){
+		// If data.length > 5, there was an error that needs to be displayed in #test div
 		if(data.length > 5){
 			$('#test').html(data);
 		}else{
+			// If data.length == 3, create user was a success, redirect to login.html
 			if(data.length == 3){
 				window.location="login.html";
 				return true;
 			}else{
+				// create user failed, inform user
 				alert("Username already exists. Please try again");
 				return false;
 			}
@@ -24,6 +34,10 @@ function addUser(uname, upass, name_f, name_l, phoneNum, admin){
 }
 
 $(document).ready(function(){
+	/*
+	*  After the Create Account Button is clicked, and through a long series of if/else/if statements,
+	*  the following function validates input.
+	*/
 	$('#CreateAccountButton').click(function(e){
 		if($('#addFname').val() == ""){
 			e.preventDefault();

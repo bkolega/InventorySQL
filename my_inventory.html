@@ -1,0 +1,131 @@
+<!--
+	Author: Tyler Steiner
+	For: WISQL Project; EECS 647
+	Date: 12/11/2015
+	File: my_inventory.html
+-->
+<!DOCTYPE html>
+<html class="my_in_h">
+  <head>
+    <title>My Inventory</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<!-- The following script checks if a user is logged in and if not, redirects them to the login page -->
+	<script>
+		var cookie = document.cookie.split("=");
+		if(cookie == ""){
+			alert("You must be logged in to view the My Inventory Page.  Redirecting to Login Page.");
+			window.location = "login.html";
+		}
+	</script>
+    <script type="text/javascript" src="js/session.js"></script>
+    <script type="text/javascript" src="js/my_inventory.js"></script>
+  </head>
+  <body class="my_in_h">
+    <div class="top_spacer"></div>
+    
+    <div class="top_bar">
+      <div class="inv_logo_box">
+	    <img src="logo.jpg" alt="WISQL" style="max-height:100%; width:auto; margin: auto; padding-left: 25%">
+      </div>
+      <div class="my_inventory_box">
+	    <h3 class="centered_text">My Inventory</h3>
+      </div>
+    </div>
+    
+    <div style="height:8px"></div> <!-- SPACER -->
+
+	<!-- Main container div for page -->
+    <div class="main_div_mi">
+	
+		<!-- SPACER -->
+		<div style="height:2px"></div>
+		
+		<!-- Basic Search Components -->
+		<div class="basic_search_div">
+			<div id="basic_s">
+				<div id="basic_search_left">
+					<h3>Search: </h3>
+				</div>
+				<div id="basic_search_center">
+					&nbsp <input type="text" id="basic_name" style="width: 95%;" placeholder="Enter Item Name" maxlength="25"/>
+				</div>
+				<div id="basic_search_right">
+					<input type="button" id="basic_go" value="GO"/>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Navigation, Advanced Search -->
+      	<div class="left_items_div_mi">
+			<div class="left_items_div_mi_1">
+				<div class="Adv_search_div">
+					<br />
+					<p class="centered_text">Navigation</p>
+					<ul>
+						<li><a href="login.html">Logout</a></li>
+						<li><a href="add_inv.html">Add/Modify Inventory</a></li>
+						<li><a href="my_account.html">My Account</a></li>
+						<li><a href="my_reports.html">My Reports</a></li>
+					</ul>
+					<br clear="all" />
+					<p class="centered_text">Advanced Search</p>
+					<div>
+						&nbsp <input type="text" id="adv_name" placeholder="Name" style="max-width:75%;" maxlength="25"/>
+					</div>
+					<div>
+						&nbsp <input type="text" id="adv_price" placeholder="Price"style="max-width:75%;" maxlength="14"/>
+					</div>
+					<div>
+						&nbsp <input type="text" id="adv_cat" placeholder="Category"style="max-width:75%;" maxlength="20"/>
+					</div>
+					<div>
+						&nbsp <input type="button" id="adv_go" value="Go" />
+					</div>
+				</div>
+			</div>
+			
+			<!-- SPACER -->
+			<div style="height:7px; float: left; width: 100%;"></div>
+			
+			<!-- Quick Statistics Contaier and Placeholder -->
+			<div class="left_items_div_mi_2">
+				<div class="Adv_search_div quickstats">
+				</div>
+			</div>
+		</div>
+	  
+		<!-- Placeholder for expanding inventory list -->
+		<div class="my_inv_expanding">
+			<div style="height: 8px; width: 100%"></div>
+		</div>
+	</div>
+	
+    <!-- SPACER -->
+    <div style="height: 8px"></div>
+
+	<!-- Copyright and SYstem Info -->
+    <div class="copyright_div_mi">
+		<div class="copyright_box">
+			<p class="centered_text">
+				<script type="text/javascript">
+				var date = new Date();
+				var yyyy = date.getFullYear();
+				var data;
+				document.write("WISQL &copy;"+yyyy);
+				</script>
+			</p>
+		</div>
+    </div>
+	
+	<!-- Get the View (total items being tracked in all inventories) -->
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$.post("php/view.php").done(function(d){
+				$('p.centered_text').last().append("<br />");
+				$('p.centered_text').last().append(d);
+			});
+		});
+    </script>
+  </body>
+</html>
