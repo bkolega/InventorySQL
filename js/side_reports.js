@@ -20,7 +20,7 @@ function loadReports(userID) {
 	});
 }
 
-function presentReport(userID, 
+/*function presentReport(userID)
 {
 
 	$.post("php/update_report.php",{
@@ -29,7 +29,7 @@ function presentReport(userID,
 		$('#reportlist').html("");
 		$('#reportlist').append(data);
 	});
-}
+}*/
 
 $(document).ready(function(){
    
@@ -45,7 +45,7 @@ $(document).ready(function(){
   //Makes call to clear the session id, user id record from the table.
    $('a').click(function(){
     if($(this).id() !== "Logout" && $(this).id() !== "My Inventory" && $(this).id() !== "My Account"){
-		presentReport(userID, $(this).text());
+		//presentReport(userID, $(this).text());
     }
   }); 
 });
