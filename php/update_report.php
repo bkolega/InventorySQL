@@ -24,6 +24,7 @@ if(!mysql_select_db($username,$database)){
   die('Could not select database: ' . mysql_error());
 }
 
+$user = $_POST["user"];
 $column1 = $_POST["col1"];
 $column2 = $_POST["col2"];
 $column3 = $_POST["col3"];

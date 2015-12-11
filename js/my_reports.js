@@ -1,5 +1,6 @@
-function createReport(p1, p2, p3, p4, p5, p6){
+function createReport(us,p1, p2, p3, p4, p5, p6){
 	$.post("php/update_report.php",{
+		user: us,
 		col1: p1,
 		col2: p2,
 		col3: p3,
@@ -24,6 +25,6 @@ $(document).ready(function(){
 		
 		
 
-		createReport(col1,col2,col3,cond1,cond2,fname);
+		createReport($('#userID').val(),col1,col2,col3,cond1,cond2,fname);
 	});
 });
