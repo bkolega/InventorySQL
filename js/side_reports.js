@@ -24,7 +24,7 @@ function loadReports(userID) {
 	$.post("php/side_reports.php",{
 		user: userID
 	},function(data, status){
-		$('#myreports').append(data);
+		$('#reportlist').append(data);
 	});
 }
 
@@ -40,9 +40,9 @@ $(document).ready(function(){
   
   //Logout link is a anchor link so it checks if the link text is logout
   //Makes call to clear the session id, user id record from the table.
-  $('a').click(function(){
+  /*$('a').click(function(){
     if($(this).id() !== "Logout"){
 		side_reports(userID, $(this).text());
     }
-  });
+  });*/
 });
