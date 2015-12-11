@@ -79,6 +79,7 @@ for($i=0; $i<$max; $i++){
 	echo "<li id=\"$name\">$name</li>";
 
 }
+echo $max;
 
 //Closes the connection to the database.
 mysql_close($database);
