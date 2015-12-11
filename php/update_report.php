@@ -33,7 +33,7 @@ $condition2 = $_POST["cond2"];
 $fname = $_POST["fname"];
 
 function getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$fname,$database){
-	$sql_query= "SELECT it." .$column1. ", it." .$column2. ", it." .$column3. " FROM INVENTORY AS inv, ITEM AS it WHERE inv.inv_name LIKE '" .$user. "%'";
+	$sql_query= "SELECT it." .$column1. ", it." .$column2. ", it." .$column3. " FROM INVENTORY AS inv, ITEM AS it WHERE inv.inv_name = '" .$user. " inventory' AND it.inventory_id = inv.inventory_id";
 	$result= mysql_query($sql_query,$database);
 	if(!$result){
 		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
@@ -44,10 +44,12 @@ function getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$fnam
 
 $result = getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$fname,$database);
 
-echo "<table>"; // start a table tag in the HTML
-echo "<tr><td>$column1<tr><td>$column2<tr><td>$column3<tr><td>";
-while($row = mysql_fetch_array($result)){   //Creates a loop to loop through results
-echo "<tr><td>" . $row[$column1] . "</td><td>" . $row[$column2] . "</td></tr>" . $row[$column3] . "</td></tr>";  //$row['index'] the index here is a field name
+while ($row = mysql_fetch_array($result)) {
+    echo '<tr>';
+    foreach($row as $field) {
+        echo '<td>' . htmlspecialchars($field) . '</td>';
+    }
+    echo '</tr>';
 }
 
 echo "</table>"; //Close the table in HTML
