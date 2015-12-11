@@ -31,7 +31,7 @@ $condition1 = $_POST["cond1"];
 $condition2 = $_POST["cond2"];
 $fname = $_POST["fname"];
 
-function getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$fname$database){
+function getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$fname,$database){
 	$sql_query= "SELECT " .$column1. ", " .$column2. ", " .$column3. " FROM USERS, ITEM WHERE user_id = " .$user. "";
 	//if($condition == "Equals")
 	//	$stored_query +=

@@ -44,6 +44,7 @@ function getNumItems($database, $un){
 
 function getSumValue($database, $un){
 	$sql_query = "SELECT SUM(value) AS s FROM ITEM WHERE inventory_id IN (SELECT inventory_id FROM HASACCESSTO WHERE user_id=\"$un\")";
+	$sql_query .= " AND is_sold=0";
 	$result = mysql_query($sql_query,$database);
 	if(!$result){
 		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
@@ -58,6 +59,7 @@ function getSumValue($database, $un){
 
 function getDepSumValue($database, $un){
 	$sql_query = "SELECT SUM(depreciated_value) AS s FROM ITEM WHERE inventory_id IN (SELECT inventory_id FROM HASACCESSTO WHERE user_id=\"$un\")";
+	$sql_query .= " AND is_sold=0";
 	$result = mysql_query($sql_query,$database);
 	if(!$result){
 		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
@@ -71,8 +73,9 @@ function getDepSumValue($database, $un){
 }
 
 function getOldest($database, $un){
-	$sql_query = "SELECT ITEM.item_purchase_date AS oldest FROM ITEM, ITEM AS I WHERE ITEM.item_purchase_date >= I.item_purchase_date GROUP BY ITEM.item_purchase_date ";
-	$sql_query .= "AND ITEM.inventory_id IN (SELECT inventory_id FROM HASACCESSTO WHERE user_id=\"$un\")";
+	
+	$sql_query = "SELECT ITEM.item_purchase_date AS oldest FROM ITEM, ITEM AS I WHERE ITEM.item_purchase_date <= I.item_purchase_date AND ITEM.inventory_id IN ";
+	$sql_query .= "(SELECT inventory_id FROM HASACCESSTO WHERE user_id=\"$un\") AND ITEM.is_SOLD=0 ORDER BY ITEM.item_purchase_date ASC LIMIT 1";
 	$result = mysql_query($sql_query,$database);
 	if(!$result){
 		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
