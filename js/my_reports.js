@@ -14,7 +14,7 @@ function createReport(us,p1, p2, p3, p4, p5, p6){
 	});
 }
 
-/*function getUserName(sess){
+function getUserName(sess){
   $.post("php/session.php",{
     method: "retrieve",
     session: sess,
@@ -29,10 +29,10 @@ function createReport(us,p1, p2, p3, p4, p5, p6){
 	var cond1 = $('#cond1').val();
 	var cond2 = $('#cond2').val();
 	var fname = $('#filename').val();
-	  createReport(user,col1,col2,col3,cond1,cond2,fname);
+	  createReport(data,col1,col2,col3,cond1,cond2,fname);
 	  return data;
   });
-}*/
+}
 
 
 
@@ -42,16 +42,5 @@ $(document).ready(function(){
 	        var session = cookie[1].split(";");
 	        session = session[0];
 	        getUserName(session);
-		var user = $('#userID').val();
-		var col1 = $('#c1').val();
-		var col2 = $('#c2').val();
-		var col3 = $('#c3').val();
-		var cond1 = $('#cond1').val();
-		var cond2 = $('#cond2').val();
-		var fname = $('#filename').val();
-		
-		
-
-		createReport(user,col1,col2,col3,cond1,cond2,fname);
 	});
 });
