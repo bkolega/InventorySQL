@@ -42,6 +42,11 @@ function getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$fnam
 	return $result;
 }
 
+function addReport($sqlquery, $reportname,$user)
+{
+
+}
+
 $result = getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$fname,$database);
 
 while ($row = mysql_fetch_array($result)) {

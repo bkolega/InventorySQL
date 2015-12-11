@@ -16,6 +16,7 @@ function createReport(us,p1, p2, p3, p4, p5, p6){
 
 $(document).ready(function(){
 	$('#submitReport').click(function(e){
+		var user = $('#userID').val()
 		var col1 = $('#c1').val();
 		var col2 = $('#c2').val();
 		var col3 = $('#c3').val();
@@ -25,6 +26,6 @@ $(document).ready(function(){
 		
 		
 
-		createReport($('#userID').val(),col1,col2,col3,cond1,cond2,fname);
+		createReport(user,col1,col2,col3,cond1,cond2,fname);
 	});
 });
