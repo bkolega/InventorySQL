@@ -41,7 +41,7 @@ $user = $_POST["user"];
  *  It returns the number of items to the calling function.
  */
 function getReports($database, $un){
-	$sql_query = "SELECT report_name FROM REPORTS WHERE user_id=\"$un\")";
+	$sql_query = "SELECT report_name FROM REPORTS WHERE user_id=\"$un\"";
 	echo $sql_query;
 	// Generates the sql query to return number of items in user's inventory (minus the sold items).
 	
