@@ -24,7 +24,7 @@ function loadReports(userID) {
 	});
 }
 
-function getUserName(sess){
+function getUserName5(sess){
   $.post("php/session.php",{
     method: "retrieve",
     session: sess,
@@ -48,12 +48,12 @@ function getUserName(sess){
 
 $(document).ready(function(){
 	$('#submitReport').click(function(e){
-	        /*var cookie = document.cookie.split("=");
+	        var cookie = document.cookie.split("=");
 	        var session = cookie[1].split(";");
 	        session = session[0];
-	        getUserName(session);*/
+	        getUserName5(session);
 
-		var username = "tuser";
+		/*var username = "tuser";
 		var col1 = $('#c1').val();
 		var col2 = $('#c2').val();
 		var col3 = $('#c3').val();
@@ -62,6 +62,6 @@ $(document).ready(function(){
 		var fname = $('#filename').val();
 		var cond3 = $('#conditionval').val();
 		createReport(username,col1,col2,col3,cond1,cond2,cond3,fname);
-		loadReports(username);
+		loadReports(username);*/
 	});
 });
