@@ -6,7 +6,6 @@ function getUserName(sess){
   })
   .done(function(data){
 	  // On completeion, kicks off php to get quickstats and inventory overview of userID
-	$('#username').html("");
 	$("#username").append(data);
 	  loadReports(data);
 	  

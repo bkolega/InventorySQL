@@ -59,6 +59,7 @@ $(document).ready(function(){
 		//var username = ($('#userID').val());
 		if(username == "")
 			username = $('#username').val();
+		username = 'tuser';
 		var col1 = $('#c1').val();
 		var col2 = $('#c2').val();
 		var col3 = $('#c3').val();
