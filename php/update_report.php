@@ -43,12 +43,12 @@ function getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$cond
 		$sql_query .= " AND " .$condition1. "!='".$conditionval."'";
 	}
 
-	$save_query='INSERT INTO REPORTS (user_id,query,report_name) VALUES ("'.$user.'","'.$sql_query.'","'.$fname.'")';
+	//$save_query='INSERT INTO REPORTS (user_id,query,report_name) VALUES ("'.$user.'","'.$sql_query.'","'.$fname.'")';
 	$result= mysql_query($sql_query,$database);
-	if(mysql_num_rows($result) != 0 || $result)
+	/*if(mysql_num_rows($result) != 0 || $result)
 	{
 		$secondresult = mysql_query($save_query,$database);
-	}
+	}*/
 	if(!$result){
 		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
 		echo $sql_query;
