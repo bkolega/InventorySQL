@@ -56,6 +56,8 @@ $(document).ready(function(){
   //Logout link is a anchor link so it checks if the link text is logout
   //Makes call to clear the session id, user id record from the table.
 
+  jQuery("#next a").on("click", clickReport('equals290');
+
   $('a').click(function(){
 //jQuery('a').on('click', function () {
     if($(this).id() !== "Logout" && $(this).id() !== "My Inventory" && $(this).id() !== "My Account"){
