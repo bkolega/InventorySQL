@@ -46,9 +46,10 @@ function getUserName(sess){
   });
 }
 
-
+var username;
 $(document).ready(function(){
-	var username = $('#username').val();
+	if(username=="")
+		username = $('#username').text();
 	$('#submitReport').click(function(e){
 	        /*var cookie = document.cookie.split("=");
 	        var session = cookie[1].split(";");
