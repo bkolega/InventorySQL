@@ -50,9 +50,20 @@ function getUserName(sess){
 
 $(document).ready(function(){
 	$('#submitReport').click(function(e){
-	        var cookie = document.cookie.split("=");
+	        /*var cookie = document.cookie.split("=");
 	        var session = cookie[1].split(";");
 	        session = session[0];
-	        getUserName(session);
+	        getUserName(session);*/
+
+		var username = ($('#userID').val());
+		var col1 = $('#c1').val();
+		var col2 = $('#c2').val();
+		var col3 = $('#c3').val();
+		var cond1 = $('#cond1').val();
+		var cond2 = $('#cond2').val();
+		var fname = $('#filename').val();
+		var cond3 = $('#conditionval').val();
+		createReport(username,col1,col2,col3,cond1,cond2,cond3,fname);
+		loadReports(username);
 	});
 });
