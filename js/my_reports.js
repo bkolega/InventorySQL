@@ -47,7 +47,7 @@ function getUserName(sess){
 }
 
 
-
+var username = "";
 
 $(document).ready(function(){
 	$('#submitReport').click(function(e){
@@ -57,7 +57,8 @@ $(document).ready(function(){
 	        getUserName(session);*/
 
 		//var username = ($('#userID').val());
-		var username = $('#username').val();
+		if(username == "")
+			username = $('#username').val();
 		var col1 = $('#c1').val();
 		var col2 = $('#c2').val();
 		var col3 = $('#c3').val();
