@@ -55,6 +55,7 @@ $(document).ready(function(){
    $('a').click(function(){
     if($(this).id() !== "Logout" && $(this).id() !== "My Inventory" && $(this).id() !== "My Account"){
 		//presentReport(userID, $(this).text());
+		clickReport($(this).id());
     }
   }); 
 });
