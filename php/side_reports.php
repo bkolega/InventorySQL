@@ -42,7 +42,7 @@ $user = $_POST["user"];
  */
 function getReports($database, $un){
 	$sql_query = "SELECT report_name FROM REPORTS WHERE user_id=\"$un\"";
-	echo $sql_query;
+	//echo $sql_query;
 	// Generates the sql query to return number of items in user's inventory (minus the sold items).
 	
 	// Runs the generated query against the database.  If the query fails to run, an ERROR will be returned, otherwise the number of items
@@ -76,7 +76,7 @@ for($i=0; $i<$max; $i++){
 	// Sets all values from the row returned from the query to their corresponding variables.
 	$name = $row[0];
 	// Generates and echos the html code to display a single item.
-	echo "<a href=\"javascript:clickReport($name)\"><li id=\"$name\">$name</li></a>";
+	echo "<a href=\"javascript:clickReport('$name')\"><li id=\"$name\">$name</li></a>";
 
 }
 //echo $max;
