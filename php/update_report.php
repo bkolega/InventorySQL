@@ -57,7 +57,20 @@ function getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$cond
 }
 
 $result = getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$conditionval,$fname,$database);
-echo "<table>";
+
+$fields_num = mysql_num_fields($result);
+
+echo "<h1>Table: {$table}</h1>";
+echo "<table border='1'><tr>";
+// printing table headers
+for($i=0; $i<$fields_num; $i++)
+{
+    $field = mysql_fetch_field($result);
+    echo "<td>{$field->name}</td>";
+}
+echo "</tr>\n";
+
+//echo "<table>";
 while ($row = mysql_fetch_array($result)) {
     echo '<tr>';
     foreach($row as $field) {
@@ -66,7 +79,7 @@ while ($row = mysql_fetch_array($result)) {
     echo '</tr>';
 }
 
-echo "</table>"; //Close the table in HTML
+//echo "</table>"; //Close the table in HTML
 
 mysql_close(); //Make sure to close out the database connection
 
