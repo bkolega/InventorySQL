@@ -57,7 +57,7 @@ $(document).ready(function(){
   //Makes call to clear the session id, user id record from the table.
 
   //jQuery("#next a").on("click", clickReport('equals290'));
-  $('a').on('click', clickReport($(this).text());
+  $('a').on('click', clickReport($(this).text()));
 
   $('a').click(function(){
 //jQuery('a').on('click', function () {
