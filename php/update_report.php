@@ -60,7 +60,7 @@ $result = getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$con
 
 $fields_num = mysql_num_fields($result);
 
-echo "<h1>Table: {$table}</h1>";
+//echo "<h1>Table: {$table}</h1>";
 echo "<table border='1'><tr>";
 // printing table headers
 for($i=0; $i<$fields_num; $i++)
@@ -71,7 +71,7 @@ for($i=0; $i<$fields_num; $i++)
 echo "</tr>\n";
 
 //echo "<table>";
-while ($row = mysql_fetch_array($result)) {
+while ($row = mysql_fetch_assoc($result)) {
     echo '<tr>';
     foreach($row as $field) {
         echo '<td>' . htmlspecialchars($field) . '</td>';
