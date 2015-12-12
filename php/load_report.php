@@ -42,12 +42,12 @@ $result = getQuery($reportname,$database);
 $fields_num = mysql_num_fields($result);
 
 //echo "<h1>Table: {$table}</h1>";
-echo "<table style='padding-left: 9.5cm' border='1'><tr>";
+echo "<table style='padding-left: 9cm' border='1'><tr>";
 // printing table headers
 for($i=0; $i<$fields_num; $i++)
 {
     $field = mysql_fetch_field($result);
-    echo "<td>{$field->name}</td>";
+    echo "<td><b>{$field->name}</b></td>";
 }
 echo "</tr>\n";
 
