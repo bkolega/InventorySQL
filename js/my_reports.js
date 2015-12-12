@@ -15,6 +15,15 @@ function createReport(us,p1, p2, p3, p4, p5, p6, p7){
 	});
 }
 
+function loadReports(userID) {
+	$.post("php/side_reports.php",{
+		user: userID
+	},function(data, status){
+		$('#reportlist').html("");
+		$('#reportlist').append(data);
+	});
+}
+
 function getUserName(sess){
   $.post("php/session.php",{
     method: "retrieve",
@@ -32,6 +41,7 @@ function getUserName(sess){
 	var fname = $('#filename').val();
 	var cond3 = $('#conditionval').val();
 	  createReport(data,col1,col2,col3,cond1,cond2,cond3,fname);
+	loadReports(data);
 	  return data;
   });
 }
