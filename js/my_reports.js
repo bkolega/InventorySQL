@@ -46,17 +46,14 @@ function getUserName(sess){
   });
 }
 
-var username;
 $(document).ready(function(){
-	if(username=="")
-		username = $('#username').text();
 	$('#submitReport').click(function(e){
 	        /*var cookie = document.cookie.split("=");
 	        var session = cookie[1].split(";");
 	        session = session[0];
 	        getUserName(session);*/
 
-		//var username = ($('#userID').val());
+		var username = "tuser";
 		var col1 = $('#c1').val();
 		var col2 = $('#c2').val();
 		var col3 = $('#c3').val();
