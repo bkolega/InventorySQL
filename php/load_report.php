@@ -29,7 +29,7 @@ $reportname = $_POST["rn"];
 function getQuery($reportname,$database){
 	//$find_query="SELECT query FROM REPORTS WHERE report_name='$reportname'";
 	$mysql_query = mysql_result(mysql_query("SELECT query FROM REPORTS WHERE report_name='$reportname'"),0);
-	$result= mysql_query($sql_query,$database);
+	$result= mysql_query($mysql_query,$database);
 	if(!$result){
 		echo mysql_errno($database) . ": " . mysql_error($database). "\n";
 		echo $sql_query;
@@ -37,7 +37,7 @@ function getQuery($reportname,$database){
 	return $result;
 }
 
-$result = getQuery($query,$database);
+$result = getQuery($reportname,$database);
 
 $fields_num = mysql_num_fields($result);
 
