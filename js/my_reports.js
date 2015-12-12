@@ -48,6 +48,7 @@ function getUserName(sess){
 
 
 
+
 $(document).ready(function(){
 	$('#submitReport').click(function(e){
 	        /*var cookie = document.cookie.split("=");

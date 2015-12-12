@@ -35,13 +35,13 @@ $fname = $_POST["fname"];
 
 function getQuery($user,$column1,$column2,$column3,$condition1,$condition2,$conditionval,$fname,$database){
 	$sql_query= "SELECT it." .$column1. ", it." .$column2. ", it." .$column3. " FROM INVENTORY AS inv, ITEM AS it WHERE inv.inv_name = '" .$user. " inventory' AND it.inventory_id = inv.inventory_id";
-	/*if($condition1 != "none" && $condition2 == "equals")
+	if($condition1 != "none" && $condition2 == "equals")
 	{
-		$sql_query .= " AND " .$condition1. "='".$conditionval."'";
+		$sql_query .= " AND it." .$condition1. "='".$conditionval."'";
 	} else if($condition1 != "none" && $condition2 == "dne")
 	{
-		$sql_query .= " AND " .$condition1. "!='".$conditionval."'";
-	}*/
+		$sql_query .= " AND it." .$condition1. "!='".$conditionval."'";
+	}
 
 	$save_query='INSERT INTO REPORTS (user_id,query,report_name) VALUES ("'.$user.'","'.$sql_query.'","'.$fname.'")';
 	$result= mysql_query($sql_query,$database);

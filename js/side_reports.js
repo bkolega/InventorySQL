@@ -31,6 +31,15 @@ function loadReports(userID) {
 	});
 }*/
 
+function clickReport(reportname) {
+	$.post("php/load_report.php",{
+		rn: reportname
+	},function(data, status){
+		$('#ReportTable').html("");
+		$('#ReportTable').append(data);
+	});
+}
+
 $(document).ready(function(){
    
 
