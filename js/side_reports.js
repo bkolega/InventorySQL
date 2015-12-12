@@ -57,12 +57,12 @@ $(document).ready(function(){
   //Makes call to clear the session id, user id record from the table.
 
   //jQuery("#next a").on("click", clickReport('equals290'));
-  $('a').on('click', clickReport($(this).text()));
+  //$('a').on('click', clickReport($(this).text()));
 
-  $('a').click(function(){
+  /*$('a').click(function(){
 //jQuery('a').on('click', function () {
     if($(this).id() !== "Logout" && $(this).id() !== "My Inventory" && $(this).id() !== "My Account"){
 		clickReport($(this).id());
     }
-  }); 
+  }); */
 });

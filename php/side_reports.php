@@ -76,10 +76,10 @@ for($i=0; $i<$max; $i++){
 	// Sets all values from the row returned from the query to their corresponding variables.
 	$name = $row[0];
 	// Generates and echos the html code to display a single item.
-	echo "<li id=\"$name\">$name</li>";
+	echo "<a href=\"javascript:clickReport($name)\"><li id=\"$name\">$name</li></a>";
 
 }
-echo $max;
+//echo $max;
 
 //Closes the connection to the database.
 mysql_close($database);
